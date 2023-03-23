@@ -21,6 +21,8 @@ app.post('/upload', (req, res) => {
         fs.writeFileSync('images/' + theFileName, theFileString, {
             'encoding': 'base64'
         });
+    } else {
+        console.log("!!!!!" + req.body.theFile);
     }
 
     res.send('UPLOADED');
