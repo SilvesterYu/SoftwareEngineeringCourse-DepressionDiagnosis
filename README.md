@@ -1,6 +1,4 @@
-# image-upload-demo
-
-## How to install
+## Install
 
 ```
 $> npm install
@@ -11,9 +9,7 @@ $> npm install
 bower install
 ```
 
-## How to start the server
+## start the server
 ```
 $> npm start
 ```
-
-Make sure there is an "images" folder in the root of this project for uploads to work properly.
