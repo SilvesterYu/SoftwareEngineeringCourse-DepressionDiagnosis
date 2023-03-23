@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image upload demo</title>
+    <title>Image Upload</title>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="container">
-    <h1>Image upload demo</h1>
+    <h1>Image Upload</h1>
 
     <form id="theImageForm">
         <label for="theImageField" id="theImageContainer">
-            <input type="file" id="theImageField" accept="image/png, image/jpeg">
-            Click here to upload or <b>drag-and-drop</b> an image...
+            <input type="file" id="theImageField" accept="image/png, image/jpeg, image/jpg">
+            Click or <b>drag-and-drop</b> to upload...
         </label>
         <p id="errorMessage" class="hide"></p>
         <p id="successMessage" class="hide"></p>
-        <button class="btn btn-lg btn-primary" type="submit">Upload</button>
-        <a href="" id="clearImage">Clear</a>
+        <button id="uploadImage" class="btn btn-lg btn-primary" type="submit">Upload Image</button>
+        <a href="" id="clearImage">Remove Image</a>
     </form>
 
 

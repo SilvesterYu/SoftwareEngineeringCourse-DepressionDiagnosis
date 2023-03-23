@@ -67,9 +67,9 @@ function checkFileProperties(theFile) {
         return false;
     }
 
-    if (theFile.size > 500000) {
+    if (theFile.size > 5000000) {
         console.log('File too large');
-        theErrorMessage.innerHTML = "File too large, cannot be more than 500KB...";
+        theErrorMessage.innerHTML = "File too large, cannot be more than 5MB...";
         theErrorMessage.classList.remove('hide');
         return false;
     }
