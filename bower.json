@@ -1,0 +1,21 @@
+{
+  "name": "image-upload-demo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Naga Chaitanya Konada <knc@outlook.in>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ChaituKNag/express-bower-bootstrap-starter-kit",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1"
+  }
+}

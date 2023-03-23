@@ -1,0 +1,23 @@
+{
+  "name": "image-upload-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Naga Chaitanya Konada <knc@outlook.in>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bower": "^1.8.4",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
+  }
+}
