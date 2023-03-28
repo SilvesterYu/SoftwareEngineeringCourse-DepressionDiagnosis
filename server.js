@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.post('/upload', (req, res) => {
     if(req.body.theFile !== "") {
+        console.log("received!!");
         let theFileString = req.body.theFile;
         let theFileName = req.body.name;
         theFileString = theFileString.replace(/data:image\/(png|jpeg);base64,/, "");
@@ -24,10 +25,14 @@ app.post('/upload', (req, res) => {
     } else {
         console.log("!!!!!" + req.body.theFile);
     }
-
+    
     res.send('UPLOADED');
 })
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`The server is up and running on ${appPort} port.`);
 });
+
+// "scripts": {
+//     /*"start": "nodemon server",*/
+//     "start": "node server.js",
