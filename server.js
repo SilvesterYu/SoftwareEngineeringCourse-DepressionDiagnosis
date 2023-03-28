@@ -5,7 +5,7 @@ const app = express();
 const appPort = process.env.PORT || 3000;
 
 app.use('/libs', express.static('bower_components'));
-app.use(express.static('..public'));
+app.use(express.static('public'));
 app.use(bodyParser({
     limit: '1mb'
 }))
