@@ -1,12 +1,73 @@
 :root {
     --width: 400px;
     --height: 300px;
+    --sectioncolor: rgb(83, 168, 184);
   }
 
+/* image upload */
 h1 {
     text-align: center;
     font-family: "Lucida Handwriting";
-    color: rgb(7, 83, 49);
+    font-size: 40;
+    color: var(--sectioncolor);
+}
+
+/* depression diagnosis app*/
+h2 {
+    text-align: center;
+    font-family: "Lucida Handwriting";
+    font-size: 60;
+    color: rgb(13, 73, 53);
+    border: 4px inset rgb(163, 235, 187);
+}
+
+/* start menu */
+h3 {
+    text-align: center;
+    font-family: "Lucida Handwriting";
+    font-size: 40;
+    color: var(--sectioncolor);
+}
+
+/* discussion forumu */
+h4 {
+    text-align: center;
+    font-family: "Lucida Handwriting";
+    font-size: 40;
+    color: var(--sectioncolor);
+    /* border: 4px dashed rgb(191, 239, 207);*/
+}
+
+/* discussion forumu some content*/
+h5 {
+    text-align: center;
+    font-family: "Lucida Console";
+    font-size: 25;
+    color: rgb(17, 34, 37);
+}
+
+#nav-bar1 {
+    text-align: center;
+    color: rgb(15, 36, 15);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px dashed rgb(191, 239, 207); */
+}
+
+#nav-bar-client {
+    text-align: center;
+    color: rgb(15, 36, 15);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px inset rgb(184, 239, 203); */
+}
+
+#nav-bar-forum {
+    text-align: center;
+    color: rgb(15, 36, 15);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px inset rgb(184, 239, 203); */
 }
 
 #theImageForm {
@@ -90,4 +151,11 @@ h1 {
     border-color: green;
     border-width: 10px;
     opacity: .3;
+}
+
+#repo {
+    text-align: center;
+    font-family: "Lucida Console";
+    font-size: 15;
+    color: rgb(17, 34, 37);
 }

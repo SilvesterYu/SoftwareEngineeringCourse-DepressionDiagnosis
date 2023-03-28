@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.ui.min.js"></script> -->
+
+    <nav id="nav-bar-client">
+        <a href="./index.html">Back to Home</a>
+        <!-- <a href="./client.html">Client Image Upload</a> -->
+      </nav>
+
+    <h1>Image Upload</h1>
+
+    <form id="theImageForm">
+        <label for="theImageField" id="theImageContainer">
+            <input type="file" id="theImageField" accept="image/png, image/jpeg, image/jpg">
+            Click or <b>drag-and-drop</b> to upload...
+        </label>
+        <p id="errorMessage" class="hide"></p>
+        <p id="successMessage" class="hide"></p>
+        <button id="uploadImage" class="btn btn-lg btn-primary" type="submit">Upload Image</button>
+        <a href="" id="clearImage">Remove Image</a>
+    </form>
+
+
+
+
+    <!-- <script src="/libs/jquery/dist/jquery.min.js"></script> -->
+    <!-- other versions https://stackoverflow.com/questions/8886614/uncaught-referenceerror-jquery-is-not-defined -->
+    
+    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="client.js"></script>
+</body>
+
+
+
+</html>

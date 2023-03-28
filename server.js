@@ -24,15 +24,11 @@ app.post('/upload', (req, res) => {
             'encoding': 'base64'
         });
     } else {
-        console.log("!!!!!" + req.body.theFile);
+        console.log("!!!!!");
     }
     
     res.send('UPLOADED');
 })
-
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log(`The server is up and running on ${appPort} port.`);
-// });
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`The server is up and running on ${appPort} port.`);
