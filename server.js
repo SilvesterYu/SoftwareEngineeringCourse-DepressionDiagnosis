@@ -19,7 +19,7 @@ app.post('/upload', (req, res) => {
         let theFileString = req.body.theFile;
         let theFileName = req.body.name;
         theFileString = theFileString.replace(/data:image\/(png|jpeg);base64,/, "");
-        console.log('the file string ' + theFileString);
+        // console.log('the file string ' + theFileString);
         fs.writeFileSync('images/' + theFileName, theFileString, {
             'encoding': 'base64'
         });
