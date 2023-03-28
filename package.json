@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "ng build"
   },
   "keywords": [],
   "author": "Naga Chaitanya Konada <knc@outlook.in>",
