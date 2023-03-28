@@ -13,6 +13,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.post('/upload', (req, res) => {
+    console.log("upload...");
     if(req.body.theFile !== "") {
         console.log("received!!");
         let theFileString = req.body.theFile;
