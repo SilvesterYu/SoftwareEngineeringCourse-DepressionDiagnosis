@@ -1,7 +1,7 @@
 :root {
     --width: 400px;
     --height: 300px;
-    --sectioncolor: rgb(83, 168, 184);
+    --sectioncolor: rgb(33, 158, 104);
   }
 
 /* image upload */
@@ -48,7 +48,7 @@ h5 {
 
 #nav-bar1 {
     text-align: center;
-    color: rgb(15, 36, 15);
+    color: rgb(103, 146, 103);
     font-size: 30px;
     font-family: "Lucida Console";
     /* border: 4px dashed rgb(191, 239, 207); */
