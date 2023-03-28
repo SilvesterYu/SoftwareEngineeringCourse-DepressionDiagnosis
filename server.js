@@ -5,7 +5,7 @@ const app = express();
 const appPort = process.env.PORT || 3000;
 
 app.use('/libs', express.static('bower_components'));
-app.use(express.static('public'));
+app.use(express.static('..public'));
 app.use(bodyParser({
     limit: '1mb'
 }))
@@ -30,9 +30,14 @@ app.post('/upload', (req, res) => {
     res.send('UPLOADED');
 })
 
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log(`The server is up and running on ${appPort} port.`);
+// });
+
 app.listen(process.env.PORT || 3000, () => {
     console.log(`The server is up and running on ${appPort} port.`);
 });
+
 
 // "scripts": {
 //     /*"start": "nodemon server",*/
