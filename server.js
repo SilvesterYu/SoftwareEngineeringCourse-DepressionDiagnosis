@@ -30,6 +30,29 @@ app.post('/upload', (req, res) => {
     res.send('UPLOADED');
 })
 
+app.post('/upload2', (req, res) => {
+    console.log("taking text...");
+    if(req.body.content !== "") {
+        console.log("received text!!");
+        
+        let textContent = req.body.content;
+        console.log(textContent);
+
+        fs.writeFileSync("forum/output.txt",
+        textContent,
+    {
+      encoding: "utf8",
+      flag: "a+",
+      mode: 0o666
+    });
+
+} else {
+    console.log("!!!!!text");
+}
+
+res.send('UPLOADED2');
+})
+
 app.listen(process.env.PORT || 3000, () => {
     console.log(`The server is up and running on ${appPort} port.`);
 });

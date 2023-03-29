@@ -3,11 +3,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- for text input -->
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <!-- end: for text input -->
+
+
     <title>Depression Diagnosis Forum</title>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+
+  <body style="text-align:center;">
 
     <ul class="nav flex-column" id="nav-bar-forum">
         <li class="nav-item">
@@ -17,12 +26,18 @@
 
       <h4>Discussion Forum</h4>
 
-      <h5>... some content here ...</h5>
+      <h5> Post and discuss your thoughts here.</h5>
 
-      <!-- <nav0>
-        <a href="./index.html">Home Menu</a>
-        <a href="./client.html">Client Image Upload</a>
-      </nav0> -->
+    
+      <form id="textForm1"></form>
+        Name:<input type="text" id="myText" value="hi">
+        <button id="textbutton1" type="button" >Try it</button>
+        <p id="demo"></p>
+      </form>
+
+      <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="forum.js"></script>
 
   </body>
 </html>
