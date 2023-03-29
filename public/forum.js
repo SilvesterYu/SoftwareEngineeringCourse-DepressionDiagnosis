@@ -1,5 +1,6 @@
 var textForm1 = document.querySelector('#textForm1');
 var textbutton1 = document.querySelector('#textbutton1');
+var demo = document.getElementById("demo");
 
 var fName = "userInput";
 
@@ -11,6 +12,11 @@ function myFunction() {
         data: {
             content: x,
             fname: fName
+        }
+    }).done(function (resp) {
+        if(resp === "TEXTRECEIVED1") {
+            demo.innerHTML = "Text saved successfully";
+            demo.classList.remove('hide');
         }
     })
 }

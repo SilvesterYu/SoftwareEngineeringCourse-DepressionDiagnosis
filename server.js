@@ -50,7 +50,7 @@ app.post('/upload2', (req, res) => {
     console.log("!!!!!text");
 }
 
-res.send('UPLOADED2');
+res.send('TEXTRECEIVED1');
 })
 
 app.listen(process.env.PORT || 3000, () => {
