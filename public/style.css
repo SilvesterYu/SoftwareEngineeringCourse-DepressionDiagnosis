@@ -2,6 +2,7 @@
     --width: 400px;
     --height: 300px;
     --sectioncolor: rgb(33, 158, 104);
+    --bgColor: rgb(127, 72, 8);
     --postWidth: 75%;
     --postHeight: 500px;
     --buttonHeight: 50px;
@@ -16,48 +17,6 @@ h1 {
     font-family: "Papyrus";
     font-size: 40;
     color: var(--sectioncolor);
-}
-
-/* depression diagnosis app*/
-h2 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 60;
-    background-color: #d5f4be;
-    color: rgb(13, 73, 53);
-    border: 4px inset rgb(163, 235, 187);
-}
-
-/* start menu */
-h3 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: var(--titleSize);
-    color: var(--sectioncolor);
-}
-
-#nav-bar1 {
-    text-align: center;
-    color: rgb(103, 146, 103);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px dashed rgb(191, 239, 207); */
-}
-
-#nav-bar-client {
-    text-align: center;
-    color: rgb(15, 36, 15);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px inset rgb(184, 239, 203); */
-}
-
-#nav-bar-forum {
-    text-align: center;
-    color: rgb(15, 36, 15);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px inset rgb(184, 239, 203); */
 }
 
 #theImageForm {
@@ -212,6 +171,62 @@ h3 {
 
 #indexBg {
     height: 100%;
+}
+
+/* depression diagnosis app*/
+h2 {
+    text-align: center;
+    font-family: "Papyrus";
+    font-size: 60;
+    background-color: #eded9f;
+    color: rgb(61, 34, 3);
+    border: 4px inset rgb(224, 136, 58);
+}
+
+/* start menu */
+h3 {
+    text-align: center;
+    font-family: "Papyrus";
+    font-size: var(--titleSize);
+    color: rgb(127, 72, 8);
+}
+
+#nav-bar1 {
+    text-align: center;
+    color: var(--bgColor);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px dashed rgb(191, 239, 207); */
+}
+
+#imageUploadBar {
+    text-align: center;
+    color: var(--bgColor);
+    font-size: 30px;
+    font-family: "Lucida Console";
+}
+
+#forumBar {
+    text-align: center;
+    color: var(--bgColor);
+    font-size: 30px;
+    font-family: "Lucida Console";
+}
+
+#nav-bar-client {
+    text-align: center;
+    color: rgb(15, 36, 15);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px inset rgb(184, 239, 203); */
+}
+
+#nav-bar-forum {
+    text-align: center;
+    color: rgb(15, 36, 15);
+    font-size: 30px;
+    font-family: "Lucida Console";
+    /* border: 4px inset rgb(184, 239, 203); */
 }
 
 /* end of index */

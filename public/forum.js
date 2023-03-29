@@ -1,3 +1,4 @@
+// the post editing and publishing functions
 var forumForm = document.querySelector('#forumForm');
 var publishbutton = document.querySelector('#publishbutton');
 var forumMessage = document.getElementById("forumMessage");
