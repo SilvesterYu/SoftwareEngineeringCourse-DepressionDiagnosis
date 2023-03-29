@@ -1,24 +1,26 @@
-var textForm1 = document.querySelector('#textForm1');
-var textbutton1 = document.querySelector('#textbutton1');
-var demo = document.getElementById("demo");
+var forumForm = document.querySelector('#forumForm');
+var publishbutton = document.querySelector('#publishbutton');
+var forumMessage = document.getElementById("forumMessage");
 
-var fName = "userInput";
-
-function myFunction() {
-    var x = "\r\n" + document.getElementById("myText").value;
+function publishPost() {
+    var fName = document.getElementById("myTitle").value;
+    var x = "\r\n" + document.getElementById("myPost").value;
     jQuery.ajax({
         method: 'POST',
-        url: '/upload2',
+        url: '/post-public',
         data: {
             content: x,
             fname: fName
         }
     }).done(function (resp) {
         if(resp === "TEXTRECEIVED1") {
-            demo.innerHTML = "Text saved successfully";
-            demo.classList.remove('hide');
+            // tell user that the post is saved and published
+            forumMessage.innerHTML = "Text saved and published successfully";
+            forumMessage.classList.remove('hide');
+            document.getElementById("myTitle").value = "";
+            document.getElementById("myPost").value = "";
         }
     })
 }
 
-textbutton1.onclick = myFunction;
+publishbutton.onclick = publishPost;

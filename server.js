@@ -30,7 +30,8 @@ app.post('/upload', (req, res) => {
     res.send('UPLOADED');
 })
 
-app.post('/upload2', (req, res) => {
+// forum
+app.post('/post-public', (req, res) => {
     console.log("taking text...");
     if(req.body.content !== "") {
         console.log("received text!!");
@@ -38,7 +39,7 @@ app.post('/upload2', (req, res) => {
         let textContent = req.body.content;
         console.log(textContent);
 
-        fs.writeFileSync("forum/output.txt",
+        fs.writeFileSync("forum/" + req.body.fname + ".txt",
         textContent,
     {
       encoding: "utf8",
@@ -52,6 +53,7 @@ app.post('/upload2', (req, res) => {
 
 res.send('TEXTRECEIVED1');
 })
+// end of forum
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`The server is up and running on ${appPort} port.`);

@@ -2,12 +2,18 @@
     --width: 400px;
     --height: 300px;
     --sectioncolor: rgb(33, 158, 104);
+    --postWidth: 75%;
+    --postHeight: 500px;
+    --buttonHeight: 50px;
+    --buttonWidth: 150px;
+    --titleSize: 40;
+
   }
 
 /* image upload */
 h1 {
     text-align: center;
-    font-family: "Lucida Handwriting";
+    font-family: "Papyrus";
     font-size: 40;
     color: var(--sectioncolor);
 }
@@ -15,7 +21,7 @@ h1 {
 /* depression diagnosis app*/
 h2 {
     text-align: center;
-    font-family: "Lucida Handwriting";
+    font-family: "Papyrus";
     font-size: 60;
     color: rgb(13, 73, 53);
     border: 4px inset rgb(163, 235, 187);
@@ -24,26 +30,9 @@ h2 {
 /* start menu */
 h3 {
     text-align: center;
-    font-family: "Lucida Handwriting";
-    font-size: 40;
+    font-family: "Papyrus";
+    font-size: var(--titleSize);
     color: var(--sectioncolor);
-}
-
-/* discussion forumu */
-h4 {
-    text-align: center;
-    font-family: "Lucida Handwriting";
-    font-size: 40;
-    color: var(--sectioncolor);
-    /* border: 4px dashed rgb(191, 239, 207);*/
-}
-
-/* discussion forumu some content*/
-h5 {
-    text-align: center;
-    font-family: "Lucida Console";
-    font-size: 25;
-    color: rgb(17, 34, 37);
 }
 
 #nav-bar1 {
@@ -117,7 +106,7 @@ h5 {
 #successMessage {
     color: rgb(49, 203, 49);
     font-size: 20px;
-    font-family: "Lucida Handwriting";
+    font-family: "Papyrus";
 }
 
 #clearImage {
@@ -159,3 +148,91 @@ h5 {
     font-size: 15;
     color: rgb(17, 34, 37);
 }
+
+/* forum */
+
+#forumForm {
+    /* image upload header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#titleContainer {
+    height: 40px;
+    width: var(--postWidth);
+    position: relative;
+    background-color: #d5f4be;
+}
+
+#postContainer {
+    height: var(--postHeight);
+    width: var(--postWidth);
+    position: relative;
+    background-color: #d5f4be;
+}
+
+#postButtonContainer {
+    height: var(--buttonHeight);
+    width: var(--buttonWidth);
+    position: relative;
+}
+
+#myTitle {
+    height: 30px;
+    width: var(--postWidth);
+    font-family: "Lucida Console";
+    position: relative;
+    font-size: 20;
+    border: 3px dotted green;
+}
+
+#myPost {
+    height: var(--postHeight);
+    width: var(--postWidth);
+    font-family: "Lucida Console";
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+    display: inline-block;
+    border: 3px dotted green;
+    line-height: 1;
+    font-size: 20;
+    word-wrap: break-word
+}
+
+/* discussion forumu */
+h4 {
+    text-align: center;
+    font-family: "Papyrus";
+    font-size: var(--titleSize);
+    color: var(--sectioncolor);
+    /* border: 4px dashed rgb(191, 239, 207);*/
+}
+
+/* discussion forumu some content*/
+h5 {
+    text-align: center;
+    font-family: "Papyrus";
+    font-size: 25;
+    color: rgb(37, 82, 66);
+}
+
+#savebutton {
+    color: rgb(14, 60, 14);
+    font-size: 20px;
+    font-family: "Lucida Console";
+    border: 2px inset rgb(24, 48, 32);
+}
+
+#publishbutton {
+    color: rgb(19, 126, 19);
+    font-size: 20px;
+    font-family: "Lucida Console";
+    border: 2px inset rgb(29, 128, 62);
+}
+
+/* end of forum */
