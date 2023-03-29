@@ -12,6 +12,11 @@
   }
 
 /* image upload */
+#uploadBack {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--bgColor);
+}
+
 h1 {
     text-align: center;
     font-family: "Papyrus";
@@ -173,6 +178,12 @@ h1 {
     height: 100%;
 }
 
+#start {
+    background-color: #eded9f;
+    opacity: 80%;
+    border: 4px inset rgb(224, 136, 58);
+}
+
 /* depression diagnosis app*/
 h2 {
     text-align: center;
@@ -180,7 +191,7 @@ h2 {
     font-size: 60;
     background-color: #eded9f;
     color: rgb(61, 34, 3);
-    border: 4px inset rgb(224, 136, 58);
+    /*border: 4px inset rgb(224, 136, 58);*/
 }
 
 /* start menu */
@@ -192,10 +203,13 @@ h3 {
 }
 
 #nav-bar1 {
+    
     text-align: center;
     color: var(--bgColor);
     font-size: 30px;
-    font-family: "Lucida Console";
+    font-family: "Papyrus";
+    background-color: bisque;
+    opacity: 70%;
     /* border: 4px dashed rgb(191, 239, 207); */
 }
 
@@ -232,6 +246,11 @@ h3 {
 /* end of index */
 
 /* discussion forumu */
+#forumBack {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--bgColor);
+}
+
 h4 {
     text-align: center;
     font-family: "Papyrus";
