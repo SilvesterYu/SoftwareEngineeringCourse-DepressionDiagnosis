@@ -68,7 +68,7 @@ h1 {
     color: rgb(247, 69, 69);
 }
 
-#successMessage {
+#successMessage, #removalMessage {
     color: rgb(49, 203, 49);
     font-size: 20px;
     font-family: "Papyrus";

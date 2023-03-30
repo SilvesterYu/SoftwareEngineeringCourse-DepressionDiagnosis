@@ -4,6 +4,7 @@ var theImageContainer = document.querySelector('#theImageContainer');
 var theErrorMessage = document.querySelector('#errorMessage');
 var theSuccessMessage = document.querySelector('#successMessage');
 var theClearImageLink = document.querySelector('#clearImage');
+var removalMessage = document.querySelector('#removalMessage');
 
 var fileName = "";
 
@@ -129,8 +130,23 @@ function clearImage(e) {
     if(theImageTag) {
         theImageContainer.removeChild(theImageTag);
         theImageField.value = null;
+        console.log("removal");
+
+        jQuery.ajax({
+            method: 'POST',
+            url: '/img-instant-removal',
+            data: {
+                name: fileName
+            }
+        }).done(function (resp) {
+            if(resp === "IMAGEREMOVED1") {
+                removalMessage.innerHTML = "Image removed from your records successfully";
+                removalMessage.classList.remove('hide');
+            }
+        })
+
     }
 
-    theErrorMessage.classList.add('hide');
     theSuccessMessage.classList.add('hide');
+    removalMessage.classList.add('hide');
 }

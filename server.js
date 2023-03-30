@@ -12,10 +12,11 @@ app.use(bodyParser({
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+// image upload
 app.post('/upload', (req, res) => {
     console.log("upload...");
     if(req.body.theFile !== "") {
-        console.log("received!!");
+        console.log("received uploaded image!!");
         let theFileString = req.body.theFile;
         let theFileName = req.body.name;
         theFileString = theFileString.replace(/data:image\/(png|jpeg);base64,/, "");
@@ -28,6 +29,21 @@ app.post('/upload', (req, res) => {
     }
     
     res.send('UPLOADED');
+})
+
+// image upload instant removal
+app.post('/img-instant-removal', (req, res) => {
+    if(req.body.content !== "") {
+        console.log("received image instant removal request!!");
+
+    var filePath = "images/" + req.body.name; 
+    fs.unlinkSync(filePath);
+
+} else {
+    console.log("!!!!!imageInstantRemoval");
+}
+
+res.send('IMAGEREMOVED1');
 })
 
 // forum
