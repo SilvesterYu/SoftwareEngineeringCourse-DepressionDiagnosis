@@ -9,45 +9,55 @@
     <!-- end: for text input -->
 
     <title>Depression Diagnosis Forum</title>
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body style="text-align:center;" >
-
+  <body style="text-align: center">
     <ul class="nav flex-column" id="nav-bar-forum">
-        <li class="nav-item">
-          <a class="nav-link active" href="./index.html" id="forumBack">Back to Home</a>
-          <a class="nav-link active" href="./forumView.html" id="forumBack2View">Back to Forum Posts</a>
-        </li>
-      </ul>
+      <li class="nav-item">
+        <a class="nav-link active" href="./index.html" id="forumBack"
+          >Back to Home</a
+        >
+        <a class="nav-link active" href="./forumView.html" id="forumBack2View"
+          >Back to Forum Posts</a
+        >
+      </li>
+    </ul>
 
-      <h4> Post on Forum </h4>
-      <h5> Post and discuss your thoughts here.</h5>
-    
-      <form id="forumForm">
+    <h4>Post on Forum</h4>
+    <h5>Post and discuss your thoughts here.</h5>
+
+    <form id="forumForm">
       <label for="myTitle" id="titleContainer">
-        Your post title:<input type="text" id="myTitle" >
+        Your post title:<input type="text" id="myTitle" />
       </label>
-        
+
       <label for="myPost" id="postContainer">
         <!-- Your post content:<input type="text" id="myPost" style="text-align:center"> -->
-        <form action = "/cgi-bin/hello_get.cgi" method = "get">  
-        Your post:<textarea rows = "20" cols = "60" name = "mypost" id="myPost"></textarea>
-       </form>
+        <form action="/cgi-bin/hello_get.cgi" method="get">
+          Your post:<textarea
+            rows="20"
+            cols="60"
+            name="mypost"
+            id="myPost"
+          ></textarea>
+        </form>
       </label>
-        
-        <label for="myPost" id="postButtonContainer">
-        <button id="savebutton" class="btn btn-lg btn-primary" type="button" >Save Post</button>
-        <button id="publishbutton" class="btn btn-lg btn-primary" type="button" >Publish Post</button>
-        </label>
 
-        <p id="forumMessage"></p>
-      
-      </form>
+      <label for="myPost" id="postButtonContainer">
+        <button id="savebutton" class="btn btn-lg btn-primary" type="button">
+          Save Post
+        </button>
+        <button id="publishbutton" class="btn btn-lg btn-primary" type="button">
+          Publish Post
+        </button>
+      </label>
 
-      <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="forum.js"></script>
+      <p id="forumMessage"></p>
+    </form>
 
+    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="forum.js"></script>
   </body>
 </html>
