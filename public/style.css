@@ -62,7 +62,7 @@ h1 {
     display: none;
 }
 
-#errorMessage, #successMessage, #searchMessage {
+#errorMessage, #successMessage, #searchMessage{
     font-family: "Calibri";
     font-size: 25px;
     margin-bottom: 25px;
@@ -72,7 +72,7 @@ h1 {
     color: rgb(247, 69, 69);
 }
 
-#successMessage, #removalMessage {
+#successMessage, #removalMessage, #diagnosisMessage, #diagnosisScore  {
     color: rgb(49, 203, 49);
     font-size: 20px;
     font-family: "Papyrus";
@@ -84,8 +84,9 @@ h1 {
     font-family: "Lucida Console";
 }
 
-#uploadImage {
-    background-color: rgb(46, 118, 46);
+.imageButton {
+    margin-top: 15px;
+    background-color: rgb(104, 143, 104);
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(24, 48, 32);

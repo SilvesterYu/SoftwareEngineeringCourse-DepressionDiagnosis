@@ -15,7 +15,6 @@ function publishPost() {
         }
     }).done(function (resp) {
         if(resp === "TEXTRECEIVED1") {
-            // tell user that the post is saved and published
             forumMessage.innerHTML = "Text saved and published successfully";
             forumMessage.classList.remove('hide');
             document.getElementById("myTitle").value = "";

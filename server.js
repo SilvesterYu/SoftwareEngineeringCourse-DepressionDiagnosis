@@ -11,6 +11,8 @@ const Report = mongoose.model("Report");
 const Post = mongoose.model("Post");
 const Reply = mongoose.model("Reply");
 
+const { spawn } = require('child_process');
+
 app.use("/libs", express.static("bower_components"));
 app.use(express.static("public"));
 app.use(
@@ -34,10 +36,7 @@ app.post("/upload", (req, res) => {
       encoding: "base64",
     });
     // here you would calculate the depression score and store the depression score in the database
-  } else {
-    console.log("!!!!!");
   }
-
   res.send("UPLOADED");
 });
 
@@ -48,11 +47,35 @@ app.post("/img-instant-removal", (req, res) => {
 
     var filePath = "images/" + req.body.name;
     fs.unlinkSync(filePath);
-  } else {
-    console.log("!!!!!imageInstantRemoval");
   }
-
   res.send("IMAGEREMOVED1");
+});
+
+app.post("/diagnosis", (req, res) => {
+  if (req.body.content !== "") {
+    console.log("received diagnosis request!!");
+    var filePath = "images/" + req.body.name;
+    console.log("the file for diganosis: " + filePath);
+  }
+  if (fs.existsSync(filePath)) {
+    var dataToSend;
+    // spawn new child process to call the python script
+    const python = spawn('python', ['script1.py']);
+    // collect data from script
+    python.stdout.on('data', function (data) {
+      console.log('Pipe data from python script ...');
+      dataToSend = data.toString();
+    });
+    // in close event we are sure that stream from child process is closed
+    python.on('close', (code) => {
+      console.log(`child process close all stdio with code ${code}`);
+      console.log(typeof (dataToSend));
+      // send data to browser
+      res.send(dataToSend);
+    });
+  } else {
+    res.send("NOSCORE");
+  }
 });
 // end of image upload
 
@@ -63,17 +86,17 @@ app.post("/forum", async (req, res) => {
   console.log(searchBy + " " + keyWord);
   // const posts = await Post.find({}).sort("-updatedAt");
   if (searchBy == "title") {
-    const posts = await Post.find({title: {$regex: keyWord}}).sort("-updatedAt");
+    const posts = await Post.find({ title: { $regex: keyWord } }).sort("-updatedAt");
     res.json({
       posts: posts,
     });
   } else if (searchBy == "author") {
-    const posts = await Post.find({author: {$regex: keyWord}}).sort("-updatedAt");
+    const posts = await Post.find({ author: { $regex: keyWord } }).sort("-updatedAt");
     res.json({
       posts: posts,
     });
   } else if (searchBy == "content") {
-    const posts = await Post.find({content:{$regex: keyWord}}).sort("-updatedAt");
+    const posts = await Post.find({ content: { $regex: keyWord } }).sort("-updatedAt");
     res.json({
       posts: posts,
     });
@@ -83,10 +106,7 @@ app.post("/forum", async (req, res) => {
       posts: posts,
     });
   }
-  
 });
-
-
 // end of forum view
 
 // forum
@@ -98,12 +118,6 @@ app.post("/post-public", async (req, res) => {
     let textContent = req.body.content;
     console.log(textContent);
 
-    /*
-    fs.writeFileSync("forum/" + req.body.fname + ".txt", textContent, {
-      encoding: "utf8",
-      flag: "a+",
-      mode: 0o666,
-    });*/
     // we need to get the current user first through the request body
     const post = new Post({
       account: null,
@@ -112,10 +126,7 @@ app.post("/post-public", async (req, res) => {
     });
     const savedPost = await post.save();
     // here save the post to the database
-  } else {
-    console.log("!!!!!text");
   }
-
   res.send("TEXTRECEIVED1");
 });
 // end of forum
@@ -124,6 +135,3 @@ app.listen(process.env.PORT || 3000, () => {
   console.log(`The server is up and running on ${appPort} port.`);
 });
 
-// "scripts": {
-//     /*"start": "nodemon server",*/
-//     "start": "node server.js",
