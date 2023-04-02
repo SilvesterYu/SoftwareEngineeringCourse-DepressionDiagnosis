@@ -256,13 +256,19 @@ h6 {
     padding: 10px;
     background-color: rgb(185, 229, 249);
     margin-top: 10px;
+    font-size: 20px;
+}
+
+.forumViewAuthor {
+    margin: auto;
+    background-color: rgb(243, 253, 255);
+    font-size:15px;
 }
 
 .forumViewBody {
     margin: auto;
     background-color: rgb(231, 248, 254);
-    margin-top: 2px;
-
+    font-size:15px;
 }
 
 #nav-bar-forumView {
