@@ -57,11 +57,33 @@ app.post("/img-instant-removal", (req, res) => {
 // end of image upload
 
 // forum view
-app.get("/forum", async (req, res) => {
-  const posts = await Post.find({}).sort("-updatedAt");
-  res.json({
-    posts: posts,
-  });
+app.post("/forum", async (req, res) => {
+  let searchBy = req.body.searchBy;
+  let keyWord = req.body.keyWord;
+  console.log(searchBy + " " + keyWord);
+  // const posts = await Post.find({}).sort("-updatedAt");
+  if (searchBy == "title") {
+    const posts = await Post.find({title: {$regex: keyWord}}).sort("-updatedAt");
+    res.json({
+      posts: posts,
+    });
+  } else if (searchBy == "author") {
+    const posts = await Post.find({author: {$regex: keyWord}}).sort("-updatedAt");
+    res.json({
+      posts: posts,
+    });
+  } else if (searchBy == "content") {
+    const posts = await Post.find({content:{$regex: keyWord}}).sort("-updatedAt");
+    res.json({
+      posts: posts,
+    });
+  } else {
+    const posts = await Post.find().sort("-updatedAt");
+    res.json({
+      posts: posts,
+    });
+  }
+  
 });
 
 

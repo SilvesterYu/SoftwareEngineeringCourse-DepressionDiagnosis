@@ -62,9 +62,9 @@ h1 {
     display: none;
 }
 
-#errorMessage, #successMessage {
+#errorMessage, #successMessage, #searchMessage {
     font-family: "Calibri";
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 25px;
 }
 
@@ -246,8 +246,29 @@ h6 {
     text-align: center;
     font-family: "Papyrus";
     font-size: var(--titleSize);
-    color: rgb(87, 197, 248);
+    color: rgb(40, 159, 214);
     /* border: 4px dashed rgb(191, 239, 207);*/
+}
+
+#mySearch {
+    height: 30px;
+    width: 50%;
+    font-family: "Lucida Console";
+    position: relative;
+    font-size: 20;
+    border: 3px inset rgb(112, 144, 188);
+}
+
+#searchButtonContainer {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.searchButton {
+    background-color: #98e5fa;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    border: 2px inset rgb(123, 194, 249);
 }
 
 .forumViewTitle {
@@ -301,14 +322,14 @@ h5 {
 }
 
 #savebutton {
-    background-color: #7cafd3;;
+    background-color: #7cd39c;;
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(24, 48, 32);
 }
 
-#publishbutton {
-    background-color: #4CAF50;
+#publishbutton, #resetSearch {
+    background-color: #72ce75;
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(29, 128, 62);
