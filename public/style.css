@@ -15,7 +15,7 @@
 #forumBack, #forumBack2View, #uploadBack, #forumViewBack, #forumView2Forum {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--bgColor);
-    font-size: 20pt;
+    font-size: 18pt;
     text-decoration: underline;
 }
 
