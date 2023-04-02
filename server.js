@@ -60,6 +60,8 @@ app.post("/diagnosis", (req, res) => {
   if (fs.existsSync(filePath)) {
     var dataToSend;
     // spawn new child process to call the python script
+    // !! IMPORTANT !! To run Python script with arguments
+    // refer to https://stackoverflow.com/questions/62450826/run-python-script-from-node-js-child-process-with-named-arguments
     const python = spawn('python', ['script1.py']);
     // collect data from script
     python.stdout.on('data', function (data) {
