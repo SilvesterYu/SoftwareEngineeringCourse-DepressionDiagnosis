@@ -15,6 +15,8 @@ function getPosts() {
         let body = document.createElement("div");
         title.innerHTML = post.title;
         body.innerHTML = post.content;
+        title.className = "forumViewTitle";
+        body.className = "forumViewBody";
         title.appendChild(body);
         discussionPosts.appendChild(title);
       });

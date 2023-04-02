@@ -54,13 +54,18 @@ app.post("/img-instant-removal", (req, res) => {
 
   res.send("IMAGEREMOVED1");
 });
+// end of image upload
 
+// forum view
 app.get("/forum", async (req, res) => {
   const posts = await Post.find({}).sort("-updatedAt");
   res.json({
     posts: posts,
   });
 });
+
+
+// end of forum view
 
 // forum
 app.post("/post-public", async (req, res) => {

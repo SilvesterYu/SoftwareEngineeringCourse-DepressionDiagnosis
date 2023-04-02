@@ -117,6 +117,24 @@ h1 {
     color: rgb(17, 34, 37);
 }
 
+/* forumView */
+
+.forumViewTitle {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    background-color: rgb(170, 221, 245);
+    margin-top: 10px;
+}
+
+.forumViewBody {
+    margin: auto;
+    background-color: rgb(179, 212, 227);
+    margin-top: 2px;
+
+}
+
+
 /* forum */
 
 #forumForm {
