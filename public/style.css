@@ -2,7 +2,7 @@
     --width: 400px;
     --height: 300px;
     --sectioncolor: rgb(33, 158, 104);
-    --bgColor: rgb(127, 72, 8);
+    --bgColor: rgb(84, 46, 3);
     --postWidth: 75%;
     --postHeight: 500px;
     --buttonHeight: 50px;
@@ -16,6 +16,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--bgColor);
     font-size: 20pt;
+    text-decoration: underline;
 }
 
 /* image upload */
@@ -117,28 +118,7 @@ h1 {
     color: rgb(17, 34, 37);
 }
 
-/* forumView */
-
-.forumViewTitle {
-    margin: auto;
-    width: 60%;
-    padding: 10px;
-    background-color: rgb(170, 221, 245);
-    margin-top: 10px;
-}
-
-.forumViewBody {
-    margin: auto;
-    background-color: rgb(179, 212, 227);
-    margin-top: 2px;
-
-}
-
-
-/* forum */
-
 #forumForm {
-    /* image upload header */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,21 +211,16 @@ h3 {
     font-family: "Papyrus";
     background-color: bisque;
     opacity: 70%;
+
     /* border: 4px dashed rgb(191, 239, 207); */
 }
 
-#imageUploadBar {
+#imageUploadBar, #forumBar {
     text-align: center;
     color: var(--bgColor);
     font-size: 30px;
     font-family: "Lucida Console";
-}
-
-#forumBar {
-    text-align: center;
-    color: var(--bgColor);
-    font-size: 30px;
-    font-family: "Lucida Console";
+    text-decoration: underline;
 }
 
 #nav-bar-client {
@@ -271,16 +246,23 @@ h6 {
     text-align: center;
     font-family: "Papyrus";
     font-size: var(--titleSize);
-    color: var(--sectioncolor);
+    color: rgb(87, 197, 248);
     /* border: 4px dashed rgb(191, 239, 207);*/
 }
 
-h7 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 25;
-    color: rgb(37, 82, 66);
-    /* border: 4px dashed rgb(191, 239, 207);*/
+.forumViewTitle {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    background-color: rgb(185, 229, 249);
+    margin-top: 10px;
+}
+
+.forumViewBody {
+    margin: auto;
+    background-color: rgb(231, 248, 254);
+    margin-top: 2px;
+
 }
 
 #nav-bar-forumView {
