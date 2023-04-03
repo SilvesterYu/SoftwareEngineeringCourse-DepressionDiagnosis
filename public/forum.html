@@ -27,6 +27,9 @@
 
     <h4>Post on Forum</h4>
     <h5>Post and discuss your thoughts here.</h5>
+    <button id="myPostButton" class="btn btn-lg btn-primary" type="button">
+      View my posts
+    </button>
 
     <form id="forumForm">
       <label for="myTitle" id="titleContainer">
@@ -37,7 +40,7 @@
         <!-- Your post content:<input type="text" id="myPost" style="text-align:center"> -->
         <form action="/cgi-bin/hello_get.cgi" method="get">
           Your post:<textarea
-            rows="20"
+            rows="18"
             cols="60"
             name="mypost"
             id="myPost"

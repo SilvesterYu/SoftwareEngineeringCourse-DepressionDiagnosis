@@ -4,11 +4,10 @@
     --sectioncolor: rgb(33, 158, 104);
     --bgColor: rgb(84, 46, 3);
     --postWidth: 75%;
-    --postHeight: 500px;
+    --postHeight: 450px;
     --buttonHeight: 50px;
     --buttonWidth: 350px;
     --titleSize: 40;
-
   }
 
   /*nav bars */
@@ -322,7 +321,7 @@ h5 {
     color: rgb(37, 82, 66);
 }
 
-#savebutton {
+#savebutton, #myPostButton {
     background-color: #7cd39c;;
     font-size: 20px;
     font-family: "Lucida Console";
