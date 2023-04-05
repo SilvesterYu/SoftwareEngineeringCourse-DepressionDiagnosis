@@ -5,6 +5,7 @@ const app = express();
 const appPort = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const db = require("./db.js");
+const path = require('path');
 
 const Account = mongoose.model("Account");
 const Report = mongoose.model("Report");
@@ -13,6 +14,7 @@ const Reply = mongoose.model("Reply");
 
 app.use("/libs", express.static("bower_components"));
 app.use(express.static("public"));
+
 app.use(
   bodyParser({
     limit: "1mb",
@@ -93,6 +95,11 @@ app.post("/post-public", async (req, res) => {
 });
 // end of forum
 
+
+app.get('/education', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'pages_education\\index_education.html'));
+});
+
 app.listen(process.env.PORT || 3000, () => {
   console.log(`The server is up and running on ${appPort} port.`);
 });
@@ -100,3 +107,8 @@ app.listen(process.env.PORT || 3000, () => {
 // "scripts": {
 //     /*"start": "nodemon server",*/
 //     "start": "node server.js",
+//cp -r node_modules\startbootstrap-clean-blog theme
+// cp -r theme\dist\css public\css
+// cp -r theme\dist\assets\img
+//cp -r theme/css public/css
+//cp -r theme/css public/css
