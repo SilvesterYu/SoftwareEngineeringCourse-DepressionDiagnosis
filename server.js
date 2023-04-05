@@ -95,10 +95,22 @@ app.post("/post-public", async (req, res) => {
 });
 // end of forum
 
+//education section
 
 app.get('/education', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'pages_education\\index_education.html'));
 });
+
+
+
+app.get('/education/contact', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'pages_education\\contact_education.html'));
+});
+
+app.get('/education/articles', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'pages_education\\articles_education.html'));
+});
+
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`The server is up and running on ${appPort} port.`);
@@ -107,8 +119,3 @@ app.listen(process.env.PORT || 3000, () => {
 // "scripts": {
 //     /*"start": "nodemon server",*/
 //     "start": "node server.js",
-//cp -r node_modules\startbootstrap-clean-blog theme
-// cp -r theme\dist\css public\css
-// cp -r theme\dist\assets\img
-//cp -r theme/css public/css
-//cp -r theme/css public/css
