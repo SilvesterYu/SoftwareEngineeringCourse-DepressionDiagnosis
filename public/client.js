@@ -5,28 +5,31 @@ var theErrorMessage = document.querySelector('#errorMessage');
 var theSuccessMessage = document.querySelector('#successMessage');
 var theClearImageLink = document.querySelector('#clearImage');
 var removalMessage = document.querySelector('#removalMessage');
+var diagnosisButton = document.querySelector('#diagnosisButton');
+var diagnosisMessage = document.querySelector('#diagnosisMessage');
+var diagnosisScore = document.querySelector('#diagnosisScore');
 
 var fileName = "";
 
 [
-    'drag', 
-    'dragstart', 
-    'dragend', 
-    'dragover', 
-    'dragenter', 
+    'drag',
+    'dragstart',
+    'dragend',
+    'dragover',
+    'dragenter',
     'dragleave',
-    'drop' 
+    'drop'
 ].forEach(function (dragEvent) {
     theImageContainer.addEventListener(dragEvent, preventDragDefault);
 });
 
-['dragover', 'dragenter'].forEach(function(dragEvent) {
+['dragover', 'dragenter'].forEach(function (dragEvent) {
     theImageContainer.addEventListener(dragEvent, function () {
         theImageContainer.classList.add('dragging');
     })
 });
 
-['dragleave', 'dragend', 'drop'].forEach(function(dragEvent) {
+['dragleave', 'dragend', 'drop'].forEach(function (dragEvent) {
     theImageContainer.addEventListener(dragEvent, function () {
         theImageContainer.classList.remove('dragging');
     })
@@ -35,7 +38,7 @@ var fileName = "";
 
 
 theImageContainer.addEventListener('drop', function (e) {
-    if(e.dataTransfer.files.length > 1) {
+    if (e.dataTransfer.files.length > 1) {
         theErrorMessage.innerHTML = "Drag only one file...";
         theErrorMessage.classList.remove('hide');
         return false;
@@ -43,7 +46,7 @@ theImageContainer.addEventListener('drop', function (e) {
     var theFile = e.dataTransfer.files[0];
     theImageField.files[0] = theFile;
 
-    if(checkFileProperties(theFile)) {
+    if (checkFileProperties(theFile)) {
         handleUploadedFile(theFile);
     }
 })
@@ -51,7 +54,7 @@ theImageContainer.addEventListener('drop', function (e) {
 theImageField.onchange = function (e) {
     var theFile = e.target.files[0];
 
-    if(checkFileProperties(theFile)) {
+    if (checkFileProperties(theFile)) {
         handleUploadedFile(theFile);
     }
 
@@ -90,17 +93,16 @@ theImageForm.onsubmit = function (e) {
             name: fileName
         }
     })
-    .done(function (resp) {
-        if(resp === "UPLOADED") {
-            theSuccessMessage.innerHTML = "Image uploaded successfully";
-            theSuccessMessage.classList.remove('hide');
-        }
-    })
+        .done(function (resp) {
+            if (resp === "UPLOADED") {
+                theSuccessMessage.innerHTML = "Image uploaded successfully";
+                theSuccessMessage.classList.remove('hide');
+            }
+        })
+        removalMessage.classList.add('hide');
 }
 
 theClearImageLink.onclick = clearImage;
-
-
 
 function preventDragDefault(e) {
     e.preventDefault();
@@ -114,20 +116,20 @@ function handleUploadedFile(file) {
     img.setAttribute('id', 'theImageTag');
     img.file = file;
     theImageContainer.appendChild(img);
-    
+
     var reader = new FileReader();
-    reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+    reader.onload = (function (aImg) { return function (e) { aImg.src = e.target.result; }; })(img);
     reader.readAsDataURL(file);
 }
 
 function clearImage(e) {
-    if(e) {
+    if (e) {
         e.preventDefault();
     }
 
     var theImageTag = document.querySelector('#theImageTag');
 
-    if(theImageTag) {
+    if (theImageTag) {
         theImageContainer.removeChild(theImageTag);
         theImageField.value = null;
         console.log("removal");
@@ -139,14 +141,54 @@ function clearImage(e) {
                 name: fileName
             }
         }).done(function (resp) {
-            if(resp === "IMAGEREMOVED1") {
+            if (resp === "IMAGEREMOVED1") {
                 removalMessage.innerHTML = "Image removed from your records successfully";
                 removalMessage.classList.remove('hide');
             }
         })
 
     }
-
     theSuccessMessage.classList.add('hide');
     removalMessage.classList.add('hide');
+    diagnosisMessage.classList.add('hide');
+    diagnosisScore.classList.add('hide');
 }
+
+function getDiagnosis() {
+    // clearScreen();
+    if (fileName.length > 0) {
+        console.log("diagnosis for " + fileName);
+        jQuery.ajax({
+            method: 'POST',
+            url: '/diagnosis',
+            data: {
+                name: fileName
+            }
+        }).done(function (resp) {
+            console.log(resp);
+            if (resp != "NOSCORE") {
+                diagnosisMessage.innerHTML = "Your depression score is";
+                diagnosisScore.innerHTML = resp;
+                diagnosisMessage.classList.remove('hide');
+                diagnosisScore.classList.remove('hide');
+            }
+        })
+    } else {
+        diagnosisMessage.innerHTML = "Please upload your image first";
+        diagnosisScore.innerHTML = "";
+        diagnosisMessage.classList.remove('hide');
+        diagnosisScore.classList.remove('hide');
+    }
+    diagnosisMessage.classList.add('hide');
+    diagnosisScore.classList.add('hide');
+}
+
+function clearScreen() {
+    diagnosisScore.innerHTML = "";
+    diagnosisMessage.classList.remove('hide');
+    diagnosisScore.classList.remove('hide');
+    diagnosisMessage.classList.add('hide');
+    diagnosisScore.classList.add('hide');
+}
+
+diagnosisButton.onclick = getDiagnosis;

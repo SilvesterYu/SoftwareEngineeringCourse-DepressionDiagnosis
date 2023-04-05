@@ -16,7 +16,11 @@
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
     "mongoose-slug-plugin": "^2.1.0",
+<<<<<<< HEAD
     "startbootstrap-clean-blog": "^6.0.9"
+=======
+    "python-shell": "^5.0.0"
+>>>>>>> f57f585fc45fc5c9c5b672a333fc0cddfdbfb48c
   },
   "devDependencies": {
     "nodemon": "^1.19.4",

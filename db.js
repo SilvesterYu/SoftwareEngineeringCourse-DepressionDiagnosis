@@ -77,7 +77,8 @@ if (process.env.NODE_ENV === "PRODUCTION") {
   dbconf = conf.dbconf;
 } else {
   // if we're not in PRODUCTION mode, then use
-  dbconf = "mongodb://localhost/depression-diagnosis-js";
+  // dbconf = "mongodb://localhost/depression-diagnosis-js";
+  dbconf = "mongodb://127.0.0.1:27017/depression-diagnosis-js"
 }
 
 mongoose.connect(dbconf);

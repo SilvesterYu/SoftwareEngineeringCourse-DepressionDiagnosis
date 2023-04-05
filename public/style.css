@@ -2,20 +2,23 @@
     --width: 400px;
     --height: 300px;
     --sectioncolor: rgb(33, 158, 104);
-    --bgColor: rgb(127, 72, 8);
+    --bgColor: rgb(84, 46, 3);
     --postWidth: 75%;
-    --postHeight: 500px;
+    --postHeight: 450px;
     --buttonHeight: 50px;
-    --buttonWidth: 150px;
+    --buttonWidth: 350px;
     --titleSize: 40;
-
   }
 
-/* image upload */
-#uploadBack {
+  /*nav bars */
+#forumBack, #forumBack2View, #uploadBack, #forumViewBack, #forumView2Forum {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--bgColor);
+    font-size: 18pt;
+    text-decoration: underline;
 }
+
+/* image upload */
 
 h1 {
     text-align: center;
@@ -58,9 +61,9 @@ h1 {
     display: none;
 }
 
-#errorMessage, #successMessage {
+#errorMessage, #successMessage, #searchMessage{
     font-family: "Calibri";
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 25px;
 }
 
@@ -68,7 +71,7 @@ h1 {
     color: rgb(247, 69, 69);
 }
 
-#successMessage, #removalMessage {
+#successMessage, #removalMessage, #diagnosisMessage, #diagnosisScore  {
     color: rgb(49, 203, 49);
     font-size: 20px;
     font-family: "Papyrus";
@@ -80,8 +83,9 @@ h1 {
     font-family: "Lucida Console";
 }
 
-#uploadImage {
-    color: rgb(14, 60, 14);
+.imageButton {
+    margin-top: 15px;
+    background-color: rgb(104, 143, 104);
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(24, 48, 32);
@@ -114,10 +118,7 @@ h1 {
     color: rgb(17, 34, 37);
 }
 
-/* forum */
-
 #forumForm {
-    /* image upload header */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -210,21 +211,16 @@ h3 {
     font-family: "Papyrus";
     background-color: bisque;
     opacity: 70%;
+
     /* border: 4px dashed rgb(191, 239, 207); */
 }
 
-#imageUploadBar {
+#imageUploadBar, #forumBar {
     text-align: center;
     color: var(--bgColor);
     font-size: 30px;
     font-family: "Lucida Console";
-}
-
-#forumBar {
-    text-align: center;
-    color: var(--bgColor);
-    font-size: 30px;
-    font-family: "Lucida Console";
+    text-decoration: underline;
 }
 
 #nav-bar-client {
@@ -250,16 +246,50 @@ h6 {
     text-align: center;
     font-family: "Papyrus";
     font-size: var(--titleSize);
-    color: var(--sectioncolor);
+    color: rgb(40, 159, 214);
     /* border: 4px dashed rgb(191, 239, 207);*/
 }
 
-h7 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 25;
-    color: rgb(37, 82, 66);
-    /* border: 4px dashed rgb(191, 239, 207);*/
+#mySearch {
+    height: 30px;
+    width: 50%;
+    font-family: "Lucida Console";
+    position: relative;
+    font-size: 20;
+    border: 3px inset rgb(112, 144, 188);
+}
+
+#searchButtonContainer {
+    margin-top: 10px;
+    width: 90%;
+}
+
+.searchButton {
+    background-color: #98e5fa;
+    font-size: 20px;
+    font-family: "Lucida Console";
+    border: 2px inset rgb(123, 194, 249);
+}
+
+.forumViewTitle {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    background-color: rgb(185, 229, 249);
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.forumViewAuthor {
+    margin: auto;
+    background-color: rgb(243, 253, 255);
+    font-size:15px;
+}
+
+.forumViewBody {
+    margin: auto;
+    background-color: rgb(231, 248, 254);
+    font-size:15px;
 }
 
 #nav-bar-forumView {
@@ -270,28 +300,10 @@ h7 {
     /* border: 4px inset rgb(184, 239, 203); */
 }
 
-#forumViewBack {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--bgColor);
-}
-
-#forumView2Forum {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--bgColor);
-}
 /* end of forum view */
 
 
 /* discussion forumu */
-#forumBack {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--bgColor);
-}
-
-#forumBack2View {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--bgColor);
-}
 
 h4 {
     text-align: center;
@@ -309,15 +321,15 @@ h5 {
     color: rgb(37, 82, 66);
 }
 
-#savebutton {
-    color: rgb(14, 60, 14);
+#savebutton, #myPostButton {
+    background-color: #7cd39c;;
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(24, 48, 32);
 }
 
-#publishbutton {
-    color: rgb(19, 126, 19);
+#publishbutton, #resetSearch {
+    background-color: #72ce75;
     font-size: 20px;
     font-family: "Lucida Console";
     border: 2px inset rgb(29, 128, 62);

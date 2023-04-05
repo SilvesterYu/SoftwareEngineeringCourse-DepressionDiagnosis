@@ -26,8 +26,26 @@
       </li>
     </ul>
 
-    <h6>Discussion Forum Posts</h6>
+    <h6>Forum Posts</h6>
+
+    Search here: <input type="text" id="mySearch" />
+    <label id="searchButtonContainer">
+    <button id="titleSearch" class="searchButton" type="button">
+      Search title
+    </button>
+    <button id="authorSearch" class="searchButton" type="button">
+      Search author
+    </button>
+    <button id="contentSearch" class="searchButton" type="button">
+      Search content
+    </button>
+    <button id="resetSearch" class="searchButton" type="button">
+      Reset search
+    </button>
+  </label>
+
     <h7 id="discussionPosts"></h7>
+    <p id="searchMessage" class="hide"></p>
 
     <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="forumView.js"></script>
