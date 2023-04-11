@@ -1,11 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
-const app = express();
+const app = new express();
 const appPort = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const db = require("./db.js");
 const path = require('path');
+const expressEdge = require("express-edge");
 
 const Account = mongoose.model("Account");
 const Report = mongoose.model("Report");
@@ -14,8 +15,15 @@ const Reply = mongoose.model("Reply");
 
 const { spawn } = require('child_process');
 
+const cors = require("cors");
+const cookieSession = require("cookie-session");
+
+
+
 app.use("/libs", express.static("bower_components"));
 app.use(express.static("public"));
+
+
 
 app.use(
   bodyParser({
@@ -24,6 +32,42 @@ app.use(
 );
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.set('view engine','ejs')
+app.set('views','./views')
+
+//引入UI路由器
+const UIRouter = require('./router/UIRouter')
+//引入登录注册路由器
+const loginRegisterRouter = require('./router/loginRegisterRouter')
+
+
+//如下代码是配置express中操作session
+//引入express-session，用于在express中简化操作session
+const session = require('express-session');
+//引入connect-mongo，用于做session持久化
+const MongoStore = require('connect-mongo')(session);
+
+app.use(session({
+  name: 'peiqi',   //返回给客户端cookie的key。
+  secret: 'atguigu', //参与加密的字符串（又称签名）
+  saveUninitialized: false, //是否在存储内容之前创建session会话
+  resave: false ,//是否在每次请求时，强制重新保存session，即使他们没有变化（比较保险）
+  store: new MongoStore({
+    url: 'mongodb://localhost:27017/sessions_container',
+    touchAfter: 24 * 3600 //修改频率（例：//在24小时之内只更新一次）
+  }),
+  cookie: {
+    httpOnly: true, // 开启后前端无法通过 JS 操作cookie
+    maxAge: 1000*30 // 设置cookie的过期时间,cookie的key，cookie的value，均不在此处配置。
+  },
+}));
+
+
+app.use(UIRouter())
+  //使用loginRegisterRouter
+  app.use(loginRegisterRouter())
+
 
 // image upload
 app.post("/upload", (req, res) => {
@@ -138,8 +182,11 @@ app.post("/post-public", async (req, res) => {
 //education section
 
 app.get('/education', (req, res) => {
+  //res.render('index_education');
   res.sendFile(path.resolve(__dirname, 'pages_education\\index_education.html'));
 });
+
+
 
 
 
@@ -150,6 +197,12 @@ app.get('/education/contact', (req, res) => {
 app.get('/education/articles', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'pages_education\\articles_education.html'));
 });
+
+app.get('/education/articles/new', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'pages_education\\post_article_education.html'));
+  
+});
+
 
 
 app.listen(process.env.PORT || 3000, () => {
