@@ -119,7 +119,6 @@ router.post('/login',(req,res)=>{
       //3.获取session会话存储空间的id
       //4.返回给客户端一个cookie，包含着：将上一步的id。
       //备注：如果使用了一些第三方库，以上四步，一行代码就可以完成。
-
       //res.cookie('_id',data._id.toString(),{maxAge:1000*60})
       req.session._id = data._id.toString()
       res.redirect(`http://localhost:3000/user_center`) //此种方法浏览器的地址栏残留的东西太多了。

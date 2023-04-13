@@ -99,26 +99,8 @@ if (process.env.NODE_ENV === "PRODUCTION") {
 //mongoose.connect(dbconf);
 
 
+mongoose.connect(dbconf,{
+    useNewUrlParser: true, //使用一个新的URL解析器，用于解决一些安全性问题。
+    useUnifiedTopology: true //使用一个统一的新的拓扑结构。
+  })
 
-  function connectMongo(success,failed) {
-    //1.连接数据库
-    mongoose.connect(dbconf,{
-      useNewUrlParser: true, //使用一个新的URL解析器，用于解决一些安全性问题。
-      useUnifiedTopology: true //使用一个统一的新的拓扑结构。
-    })
-  
-    //2.绑定数据库连接的监听
-    mongoose.connection.on('open',function (err) {
-      if(err){
-        console.log('数据库连接失败',err)
-        failed('connect failed')
-      }else{
-        console.log('数据库连接成功')
-        success()
-      }
-    })
-  }
-  
-  module.exports = connectMongo
-  
-  

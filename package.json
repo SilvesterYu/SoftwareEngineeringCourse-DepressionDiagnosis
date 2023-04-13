@@ -1,8 +1,8 @@
 {
-  "name": "4.login_register_copy",
+  "name": "softwareengineeringcourse-frontend-with-database",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "```\r $> npm install\r ```",
+  "main": "db.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -14,7 +14,9 @@
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
-    "express-edge": "^2.0.2",
+    "ejs": "^3.1.9",
+    "mongo-connect": "^0.0.6",
+    "mongoose": "^5.7.7",
     "mongoose-slug-plugin": "^2.1.0",
     "sha1": "^1.1.1"
   }
