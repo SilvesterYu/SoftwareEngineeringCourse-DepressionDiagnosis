@@ -4,7 +4,7 @@ const url = require("url");
 const mongoose = require("mongoose");
 const mongooseSlugPlugin = require("mongoose-slug-plugin");
 
-mongoose.set('useCreateIndex',true) //使用一个新的索引创建器
+//mongoose.set('useCreateIndex',true) //使用一个新的索引创建器
 
 const DB_NAME = 'atguigu' //数据库名
 const PORT = 27017 //端口号
@@ -104,7 +104,8 @@ if (process.env.NODE_ENV === "PRODUCTION") {
     //1.连接数据库
     mongoose.connect(dbconf,{
       useNewUrlParser: true, //使用一个新的URL解析器，用于解决一些安全性问题。
-      useUnifiedTopology: true //使用一个统一的新的拓扑结构。
+      useUnifiedTopology: true, //使用一个统一的新的拓扑结构。
+      createIndexes: true
     })
   
     //2.绑定数据库连接的监听

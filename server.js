@@ -13,8 +13,8 @@ const Report = mongoose.model("Report");
 const Post = mongoose.model("Post");
 const Reply = mongoose.model("Reply");
 const { spawn } = require('child_process');
-const cors = require("cors");
-const cookieSession = require("cookie-session");
+
+
 
 app.disable('x-powered-by')
 app.use("/libs", express.static("bower_components"));
@@ -50,9 +50,26 @@ const loginRegisterRouter = require('./router/loginRegisterRouter')
 
 //const MongoStore = require('connect-mongo')(session);
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session);
 
-const store = MongoStore.create({
+
+app.use(session({
+  name: 'peiqi',   //返回给客户端cookie的key。
+  secret: 'atguigu', //参与加密的字符串（又称签名）
+  saveUninitialized: false, //是否在存储内容之前创建session会话
+  resave: false ,//是否在每次请求时，强制重新保存session，即使他们没有变化（比较保险）
+  store: new MongoStore({
+    url: 'mongodb://localhost:27017/sessions_container',
+    touchAfter: 24 * 3600 //修改频率（例：//在24小时之内只更新一次）
+  }),
+  cookie: {
+    httpOnly: true, // 开启后前端无法通过 JS 操作cookie
+    maxAge: 1000*30 // 设置cookie的过期时间,cookie的key，cookie的value，均不在此处配置。
+  },
+}));
+
+
+/*const store = MongoStore.create({
   mongoUrl: 'mongodb://localhost:27017/sessions_container',
   touchAfter: 24 * 3600 //修改频率（例：//在24小时之内只更新一次）
 });
@@ -67,25 +84,11 @@ app.use(session({
     httpOnly: true,
     maxAge: 1000*30
   }
-}));
-
-
-
-
-/*app.use(session({
-  name: 'peiqi',   //返回给客户端cookie的key。
-  secret: 'atguigu', //参与加密的字符串（又称签名）
-  saveUninitialized: false, //是否在存储内容之前创建session会话
-  resave: false ,//是否在每次请求时，强制重新保存session，即使他们没有变化（比较保险）
-  store: new MongoStore({
-    url: 'mongodb://localhost:27017/sessions_container',
-    touchAfter: 24 * 3600 //修改频率（例：//在24小时之内只更新一次）
-  }),
-  cookie: {
-    httpOnly: true, // 开启后前端无法通过 JS 操作cookie
-    maxAge: 1000*30 // 设置cookie的过期时间,cookie的key，cookie的value，均不在此处配置。
-  },
 }));*/
+
+
+
+
 
 
 

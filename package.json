@@ -2,7 +2,7 @@
   "name": "softwareengineeringcourse-frontend-with-database",
   "version": "1.0.0",
   "description": "```\r $> npm install\r ```",
-  "main": "db.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -10,14 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "connect-mongo": "^5.0.0",
-    "cookie-parser": "^1.4.6",
-    "cookie-session": "^2.0.0",
-    "cors": "^2.8.5",
+    "connect-mongo": "^3.2.0",
     "ejs": "^3.1.9",
-    "mongo-connect": "^0.0.6",
+    "express": "^4.18.2",
     "mongoose": "^5.7.7",
     "mongoose-slug-plugin": "^2.1.0",
+    "require-optional": "^0.4.0",
+    "resolve-from": "^5.0.0",
     "sha1": "^1.1.1"
   }
 }
