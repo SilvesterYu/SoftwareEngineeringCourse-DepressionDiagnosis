@@ -8,7 +8,7 @@ const mongooseSlugPlugin = require("mongoose-slug-plugin");
 
 const AccountSchema = new mongoose.Schema(
   {
-    username: { type: String, unique: true, required: true },
+    name: { type: String, required: true },
     password: { type: String, unique: true, required: true },
     email: { type: String, unique: true, required: true },
     role: {
@@ -57,7 +57,7 @@ const ReplySchema = new mongoose.Schema(
   { timstamps: true }
 );
 
-AccountSchema.plugin(mongooseSlugPlugin, { tmpl: "<%=username%>" });
+AccountSchema.plugin(mongooseSlugPlugin, { tmpl: "<%=name%>" });
 
 mongoose.model("Account", AccountSchema);
 mongoose.model("Report", ReportSchema);
@@ -77,8 +77,8 @@ if (process.env.NODE_ENV === "PRODUCTION") {
   dbconf = conf.dbconf;
 } else {
   // if we're not in PRODUCTION mode, then use
-  // dbconf = "mongodb://localhost/depression-diagnosis-js";
-  dbconf = "mongodb://127.0.0.1:27017/depression-diagnosis-js"
+  dbconf = "mongodb://localhost:27017/depression-diagnosis-js";
+  //dbconf = "mongodb://127.0.0.1:27017/depression-diagnosis-js";
 }
 
 mongoose.connect(dbconf);

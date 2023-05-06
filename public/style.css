@@ -1,173 +1,189 @@
 :root {
-    --width: 400px;
-    --height: 300px;
-    --sectioncolor: rgb(33, 158, 104);
-    --bgColor: rgb(84, 46, 3);
-    --postWidth: 75%;
-    --postHeight: 450px;
-    --buttonHeight: 50px;
-    --buttonWidth: 350px;
-    --titleSize: 40;
-  }
+  --width: 400px;
+  --height: 300px;
+  --sectioncolor: rgb(33, 158, 104);
+  --bgColor: rgb(84, 46, 3);
+  --postWidth: 75%;
+  --postHeight: 450px;
+  --buttonHeight: 50px;
+  --buttonWidth: 350px;
+  --titleSize: 40;
+}
 
-  /*nav bars */
-#forumBack, #forumBack2View, #uploadBack, #forumViewBack, #forumView2Forum {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--bgColor);
-    font-size: 18pt;
-    text-decoration: underline;
+/*nav bars */
+#forumBack,
+#forumBack2View,
+#uploadBack,
+#forumViewBack,
+#forumView2Forum {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--bgColor);
+  font-size: 18pt;
+  text-decoration: underline;
 }
 
 /* image upload */
 
 h1 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 40;
-    color: var(--sectioncolor);
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: 40;
+  color: var(--sectioncolor);
 }
 
 #theImageForm {
-    /* image upload header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    font-size: 20px;
+  /* image upload header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 20px;
 }
 
 #theImageContainer {
-    /* image upload container */
-    height: var(--height);
-    width: var(--width);
-    border: 4px inset rgb(107, 180, 133);
-    background-color: #d5f4be;
-    font-family: "Lucida Console";
-    font-size: 20px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top: 100px;
-    color: rgb(7, 75, 45);
-    cursor: pointer;
-    border-radius: 70%;
-    margin-bottom: 25px;
-    position: relative;
-    overflow: hidden;
-
+  /* image upload container */
+  height: var(--height);
+  width: var(--width);
+  border: 4px inset rgb(107, 180, 133);
+  background-color: #d5f4be;
+  font-family: "Lucida Console";
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 100px;
+  color: rgb(7, 75, 45);
+  cursor: pointer;
+  border-radius: 70%;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
 }
 
 #theImageField {
-    display: none;
+  display: none;
 }
 
-#errorMessage, #successMessage, #searchMessage{
-    font-family: "Calibri";
-    font-size: 25px;
-    margin-bottom: 25px;
+#errorMessage,
+#successMessage,
+#searchMessage {
+  font-family: "Calibri";
+  font-size: 25px;
+  margin-bottom: 25px;
 }
 
 #errorMessage {
-    color: rgb(247, 69, 69);
+  color: rgb(247, 69, 69);
 }
 
-#successMessage, #removalMessage, #diagnosisMessage, #diagnosisScore  {
-    color: rgb(49, 203, 49);
-    font-size: 20px;
-    font-family: "Papyrus";
+#successMessage,
+#removalMessage,
+#diagnosisMessage,
+#diagnosisScore {
+  color: rgb(49, 203, 49);
+  font-size: 20px;
+  font-family: "Papyrus";
 }
 
 #clearImage {
-    color: rgb(26, 79, 26);
-    font-size: 20px;
-    font-family: "Lucida Console";
+  color: rgb(26, 79, 26);
+  font-size: 20px;
+  font-family: "Lucida Console";
 }
 
 .imageButton {
-    margin-top: 15px;
-    background-color: rgb(104, 143, 104);
-    font-size: 20px;
-    font-family: "Lucida Console";
-    border: 2px inset rgb(24, 48, 32);
+  margin-top: 15px;
+  background-color: rgb(104, 143, 104);
+  font-size: 20px;
+  font-family: "Lucida Console";
+  border: 2px inset rgb(24, 48, 32);
 }
 
 #theImageTag {
-    position: absolute;
-    top: -0px;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    /* transform: translateX(-0var(--width)); */
-    /* transform: translateY(0.5var(--height)); */
+  position: absolute;
+  top: -0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  /* transform: translateX(-0var(--width)); */
+  /* transform: translateY(0.5var(--height)); */
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 #theImageContainer.dragging {
-    border-color: green;
-    border-width: 10px;
-    opacity: .3;
+  border-color: green;
+  border-width: 10px;
+  opacity: 0.3;
 }
 
 #repo {
-    text-align: center;
-    font-family: "Lucida Console";
-    font-size: 15;
-    color: rgb(17, 34, 37);
+  position: fixed;
+  bottom: 30;
+  width: 100%;
+  text-align: center;
+  font-family: "Lucida Console";
+  font-size: 15;
+  color: white;
+}
+
+#repo:hover {
+  color: lightyellow;
 }
 
 #forumForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: 20px;
 }
 
 #titleContainer {
-    height: 40px;
-    width: var(--postWidth);
-    position: relative;
-    background-color: #d5f4be;
+  height: 40px;
+  width: var(--postWidth);
+  position: relative;
+  background-color: #d5f4be;
 }
 
 #postContainer {
-    height: var(--postHeight);
-    width: var(--postWidth);
-    position: relative;
-    background-color: #d5f4be;
+  height: var(--postHeight);
+  width: var(--postWidth);
+  position: relative;
+  background-color: #d5f4be;
 }
 
 #postButtonContainer {
-    height: var(--buttonHeight);
-    width: var(--buttonWidth);
-    position: relative;
+  height: var(--buttonHeight);
+  width: var(--buttonWidth);
+  position: relative;
 }
 
 #myTitle {
-    height: 30px;
-    width: var(--postWidth);
-    font-family: "Lucida Console";
-    position: relative;
-    font-size: 20;
-    border: 3px dotted green;
+  height: 30px;
+  width: var(--postWidth);
+  font-family: "Lucida Console";
+  position: relative;
+  font-size: 20;
+  border: 3px dotted green;
 }
 
 #myPost {
-    height: var(--postHeight);
-    width: var(--postWidth);
-    font-family: "Lucida Console";
-    position: relative;
-    text-align: left;
-    vertical-align: top;
-    display: inline-block;
-    border: 3px dotted green;
-    line-height: 1;
-    font-size: 20;
-    word-wrap: break-word
+  height: var(--postHeight);
+  width: var(--postWidth);
+  font-family: "Lucida Console";
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  display: inline-block;
+  border: 3px dotted green;
+  line-height: 1;
+  font-size: 20;
+  word-wrap: break-word;
 }
 
 /* index */
@@ -176,163 +192,265 @@ h1 {
 }*/
 
 #indexBg {
-    height: 100%;
+  height: 100%;
 }
 
 #start {
-    background-color: #eded9f;
-    opacity: 80%;
-    border: 4px inset rgb(224, 136, 58);
+  background-color: #eded9f;
+  opacity: 80%;
+  border: 4px inset rgb(224, 136, 58);
 }
 
 /* depression diagnosis app*/
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  font-family: "Papyrus";
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: burlywood;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
 h2 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 60;
-    background-color: #eded9f;
-    color: rgb(61, 34, 3);
-    /*border: 4px inset rgb(224, 136, 58);*/
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: 60;
+  color: rgb(61, 34, 3);
+  /*border: 4px inset rgb(224, 136, 58);*/
 }
 
 /* start menu */
 h3 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: var(--titleSize);
-    color: rgb(127, 72, 8);
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: var(--titleSize);
+  color: rgb(127, 72, 8);
 }
 
-#nav-bar1 {
-    
-    text-align: center;
-    color: var(--bgColor);
-    font-size: 30px;
-    font-family: "Papyrus";
-    background-color: bisque;
-    opacity: 70%;
-
-    /* border: 4px dashed rgb(191, 239, 207); */
+#loginSection {
+  text-align: center;
+  padding-top: 20px;
 }
 
-#imageUploadBar, #forumBar {
-    text-align: center;
-    color: var(--bgColor);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    text-decoration: underline;
+#loginButton {
+  background-color: burlywood;
+  font-family: "Papyrus";
+  font-size: 30;
+  color: rgb(61, 34, 3);
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #333;
+  border-width: 3px;
 }
 
-#nav-bar-client {
-    text-align: center;
-    color: rgb(15, 36, 15);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px inset rgb(184, 239, 203); */
+#loginButton:hover {
+  background-color: lightyellow;
 }
 
-#nav-bar-forum {
-    text-align: center;
-    color: rgb(15, 36, 15);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px inset rgb(184, 239, 203); */
+#nickname {
+  background-color: burlywood;
+  font-family: "Papyrus";
+  font-size: 30;
+  color: rgb(61, 34, 3);
+  padding: 10px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #333;
+  border-width: 3px;
 }
 
 /* end of index */
 
 /* forum view */
 h6 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: var(--titleSize);
-    color: rgb(40, 159, 214);
-    /* border: 4px dashed rgb(191, 239, 207);*/
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: var(--titleSize);
+  color: rgb(40, 159, 214);
+  /* border: 4px dashed rgb(191, 239, 207);*/
 }
 
 #mySearch {
-    height: 30px;
-    width: 50%;
-    font-family: "Lucida Console";
-    position: relative;
-    font-size: 20;
-    border: 3px inset rgb(112, 144, 188);
+  height: 30px;
+  width: 50%;
+  font-family: "Lucida Console";
+  position: relative;
+  font-size: 20;
+  border: 3px inset rgb(112, 144, 188);
 }
 
 #searchButtonContainer {
-    margin-top: 10px;
-    width: 90%;
+  margin-top: 10px;
+  width: 90%;
 }
 
 .searchButton {
-    background-color: #98e5fa;
-    font-size: 20px;
-    font-family: "Lucida Console";
-    border: 2px inset rgb(123, 194, 249);
+  background-color: #98e5fa;
+  font-size: 20px;
+  font-family: "Lucida Console";
+  border: 2px inset rgb(123, 194, 249);
 }
 
 .forumViewTitle {
-    margin: auto;
-    width: 60%;
-    padding: 10px;
-    background-color: rgb(185, 229, 249);
-    margin-top: 10px;
-    font-size: 20px;
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: rgb(185, 229, 249);
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 .forumViewAuthor {
-    margin: auto;
-    background-color: rgb(243, 253, 255);
-    font-size:15px;
+  margin: auto;
+  background-color: rgb(243, 253, 255);
+  font-size: 15px;
 }
 
 .forumViewBody {
-    margin: auto;
-    background-color: rgb(231, 248, 254);
-    font-size:15px;
+  margin: auto;
+  background-color: rgb(231, 248, 254);
+  font-size: 15px;
 }
 
 #nav-bar-forumView {
-    text-align: center;
-    color: rgb(15, 36, 15);
-    font-size: 30px;
-    font-family: "Lucida Console";
-    /* border: 4px inset rgb(184, 239, 203); */
+  text-align: center;
+  color: rgb(15, 36, 15);
+  font-size: 30px;
+  font-family: "Lucida Console";
+  /* border: 4px inset rgb(184, 239, 203); */
 }
 
 /* end of forum view */
 
-
 /* discussion forumu */
 
 h4 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: var(--titleSize);
-    color: var(--sectioncolor);
-    /* border: 4px dashed rgb(191, 239, 207);*/
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: var(--titleSize);
+  color: var(--sectioncolor);
+  /* border: 4px dashed rgb(191, 239, 207);*/
 }
 
 /* discussion forumu some content*/
 h5 {
-    text-align: center;
-    font-family: "Papyrus";
-    font-size: 25;
-    color: rgb(37, 82, 66);
+  text-align: center;
+  font-family: "Papyrus";
+  font-size: 25;
+  color: rgb(37, 82, 66);
 }
 
-#savebutton, #myPostButton {
-    background-color: #7cd39c;;
-    font-size: 20px;
-    font-family: "Lucida Console";
-    border: 2px inset rgb(24, 48, 32);
+#savebutton,
+#myPostButton {
+  background-color: #7cd39c;
+  font-size: 20px;
+  font-family: "Lucida Console";
+  border: 2px inset rgb(24, 48, 32);
 }
 
-#publishbutton, #resetSearch {
-    background-color: #72ce75;
-    font-size: 20px;
-    font-family: "Lucida Console";
-    border: 2px inset rgb(29, 128, 62);
+#publishbutton,
+#resetSearch {
+  background-color: #72ce75;
+  font-size: 20px;
+  font-family: "Lucida Console";
+  border: 2px inset rgb(29, 128, 62);
 }
 
 /* end of forum */
+
+.post-preview {
+  background: lightyellow;
+}
+
+#subheading {
+  font-family: "Papyrus";
+  text-align: center;
+}
+.post-title {
+  font-size: 40px;
+}
+
+.row {
+  text-align: center;
+  font-family: "Papyrus";
+}
+
+.box {
+  display: inline-block;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 80px;
+  border: 2px solid green;
+}
+
+.box:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+.box a {
+  text-decoration: none;
+}
+
+.login {
+  text-align: center;
+}
+
+.loginInput {
+  display: inline-block;
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 80px;
+  border: burlywood solid 3px;
+  font-family: "Papyrus";
+}
+
+.register {
+  text-align: center;
+}
+
+.registerInput {
+  display: inline-block;
+  width: 500px;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 80px;
+  border: burlywood solid 3px;
+  font-family: "Papyrus";
+}
+.err {
+  display: table;
+  margin: 0 auto;
+}
+
+#forumView2Forum {
+  background-color: burlywood;
+  border-radius: 5px;
+  padding: 3px;
+  text-decoration: none;
+}

@@ -15,34 +15,37 @@
   </head>
 
   <body style="text-align: center">
-    <ul class="nav flex-column" id="nav-bar-forumView">
-      <li class="nav-item">
-        <a class="nav-link active" href="./index.html" id="forumViewBack"
-          >Back to Home</a
-        >
-        <a class="nav-link active" href="./forum.html" id="forumView2Forum"
-          >Post on Forum</a
-        >
-      </li>
-    </ul>
+    <div class="topnav">
+      <a class="active" href="/index" id="home">Home</a>
+      <a href="./client.html" id="imageUploadBar">Image Upload for Diagnosis</a>
+      <a href="./forumView.html" id="forumbar">Discussion Forum</a>
+      <a href="./education.html" id="education">Education Section</a>
+    </div>
 
-    <h6>Forum Posts</h6>
+    <h1>Forum Posts</h1>
+
+    <div>
+      <a class="nav-link active" href="./forum.html" id="forumView2Forum"
+        >Post on Forum</a
+      >
+    </div>
+    <br />
 
     Search here: <input type="text" id="mySearch" />
     <label id="searchButtonContainer">
-    <button id="titleSearch" class="searchButton" type="button">
-      Search title
-    </button>
-    <button id="authorSearch" class="searchButton" type="button">
-      Search author
-    </button>
-    <button id="contentSearch" class="searchButton" type="button">
-      Search content
-    </button>
-    <button id="resetSearch" class="searchButton" type="button">
-      Reset search
-    </button>
-  </label>
+      <button id="titleSearch" class="searchButton" type="button">
+        Search title
+      </button>
+      <button id="authorSearch" class="searchButton" type="button">
+        Search author
+      </button>
+      <button id="contentSearch" class="searchButton" type="button">
+        Search content
+      </button>
+      <button id="resetSearch" class="searchButton" type="button">
+        Reset search
+      </button>
+    </label>
 
     <h7 id="discussionPosts"></h7>
     <p id="searchMessage" class="hide"></p>
