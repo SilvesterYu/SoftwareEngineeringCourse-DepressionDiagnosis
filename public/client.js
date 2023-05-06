@@ -172,7 +172,7 @@ function getDiagnosis() {
       .done(function (resp) {
         console.log(resp);
         if (resp != "NOSCORE") {
-          diagnosisMessage.innerHTML = "Your depression score is 50";
+          diagnosisMessage.innerHTML = "Your depression score is ";
           diagnosisScore.innerHTML = resp;
           diagnosisMessage.classList.remove("hide");
           diagnosisScore.classList.remove("hide");

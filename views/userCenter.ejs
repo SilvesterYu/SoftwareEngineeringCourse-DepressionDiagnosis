@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>User Center</title>
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
@@ -24,6 +23,15 @@
           <div class="col-md-8 col-md-offset-2 gtco-heading text-center">
             <p>Hi <%=name%>, you can view your information here.</p>
             <h5>Email：<%=email%></h5>
+
+            <!-- <button
+              id="myPostButton"
+              class="btn btn-lg btn-primary"
+              type="button"
+            >
+              View my posts
+            </button> -->
+
             <div id="depressionLog">
               <div
                 id="myPlot"

@@ -60,6 +60,13 @@ app.get("/index", function (req, res) {
   }
 });
 
+app.get("/forum", function (req, res) {
+  if (req.session.user) res.sendFile(__dirname + "/public/forum.html");
+  else {
+    res.redirect("/login");
+  }
+});
+
 // image upload
 app.post("/upload", (req, res) => {
   console.log("upload...");
@@ -72,7 +79,6 @@ app.post("/upload", (req, res) => {
     fs.writeFileSync("images/" + theFileName, theFileString, {
       encoding: "base64",
     });
-    // here you would calculate the depression score and store the depression score in the database
   }
   res.send("UPLOADED");
 });
@@ -88,7 +94,7 @@ app.post("/img-instant-removal", (req, res) => {
   res.send("IMAGEREMOVED1");
 });
 
-app.post("/diagnosis", (req, res) => {
+app.post("/diagnosis", async (req, res) => {
   if (req.body.content !== "") {
     console.log("received diagnosis request!!");
     var filePath = "images/" + req.body.name;
@@ -105,12 +111,26 @@ app.post("/diagnosis", (req, res) => {
       console.log("Pipe data from python script ...");
       dataToSend = data.toString();
     });
+    dataToSend = Math.floor(Math.random() * (80 - 20 + 1) + 20);
+    if (req.session.user) {
+      // save to database
+      try {
+        const report = new Report({
+          account: req.session.user._id,
+          score: dataToSend,
+        });
+        const savedReport = await report.save();
+      } catch (err) {
+        console.log("Could not save to database");
+      }
+    }
+
     // in close event we are sure that stream from child process is closed
     python.on("close", (code) => {
       console.log(`child process close all stdio with code ${code}`);
       console.log(typeof dataToSend);
       // send data to browser
-      res.send(dataToSend);
+      res.send(JSON.stringify(dataToSend));
     });
   } else {
     res.send("NOSCORE");
@@ -165,7 +185,7 @@ app.post("/post-public", async (req, res) => {
 
     // we need to get the current user first through the request body
     const post = new Post({
-      account: null,
+      account: req.session.user._id,
       title: req.body.fname,
       content: req.body.content.trim(),
     });
@@ -272,8 +292,15 @@ app.get("/userCenter", async (req, res) => {
   if (_id) {
     try {
       const user = await Account.findOne({ _id });
-      if (user)
-        res.render("userCenter", { name: user.name, email: user.email });
+      if (user) {
+        const reports = await Report.find({ account: _id });
+        console.log(reports);
+        res.render("userCenter", {
+          name: user.name,
+          email: user.email,
+          xArray: reports,
+        });
+      }
     } catch (error) {
       res.redirect("/login");
     }
