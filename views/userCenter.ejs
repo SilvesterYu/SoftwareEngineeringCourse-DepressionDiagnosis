@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>User Center</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="./index" id="home">Home</a>
+      <a href="./client.html" id="imageUploadBar">Image Upload for Diagnosis</a>
+      <a href="./forumView.html" id="forumbar">Discussion Forum</a>
+      <a href="./education.html" id="education">Education Section</a>
+    </div>
+    <h1>User Center</h1>
+    <div class="gtco-section">
+      <div class="gtco-container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 gtco-heading text-center">
+            <p>Hi <%=name%>, you can view your information here.</p>
+            <h5>Email：<%=email%></h5>
+            <div id="depressionLog">
+              <div
+                id="myPlot"
+                style="width: 100%; max-width: 700px; margin: 0 auto"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var xArray = [
+        "2023-03-04 10:23:00",
+        "2023-04-12 22:19:00",
+        "2023-05-01 15:18:00",
+        "2023-05-07 16:10:00",
+      ];
+      var yArray = [30, 60, 50, 50];
+
+      // Define Data
+      var data = [
+        {
+          x: xArray,
+          y: yArray,
+          mode: "scatter",
+        },
+      ];
+
+      // Define Layout
+      var layout = {
+        yaxis: { range: [0, 100], title: "Depression Score" },
+        title: "Depression Score Log",
+      };
+
+      // Display using Plotly
+      Plotly.newPlot("myPlot", data, layout);
+    </script>
+  </body>
+</html>
