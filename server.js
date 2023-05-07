@@ -35,11 +35,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(
   session({
     secret: "this is top secret",
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      maxAge: 1000 * 60 * 10,
+      maxAge: 60 * 1000,
     },
     rolling: true,
   })
@@ -94,7 +94,7 @@ app.post("/img-instant-removal", (req, res) => {
   res.send("IMAGEREMOVED1");
 });
 
-app.post("/diagnosis", async (req, res) => {
+app.post("/diagnosis", (req, res) => {
   if (req.body.content !== "") {
     console.log("received diagnosis request!!");
     var filePath = "images/" + req.body.name;
@@ -111,24 +111,25 @@ app.post("/diagnosis", async (req, res) => {
       console.log("Pipe data from python script ...");
       dataToSend = data.toString().trim();
     });
-    if (req.session.user) {
-      // save to database
-      try {
-        const report = new Report({
-          account: req.session.user._id,
-          score: dataToSend,
-        });
-        const savedReport = await report.save();
-      } catch (err) {
-        console.log("Could not save to database");
-      }
-    }
-
     // in close event we are sure that stream from child process is closed
-    python.on("close", (code) => {
+    python.on("close", async (code) => {
       console.log(`child process close all stdio with code ${code}`);
       console.log(typeof dataToSend);
       // send data to browser
+
+      // save to database if session exists
+      if (req.session.user) {
+        // save to database
+        try {
+          const report = new Report({
+            account: req.session.user._id,
+            score: parseInt(dataToSend),
+          });
+          const savedReport = await report.save();
+        } catch (err) {
+          console.log("Could not save to database");
+        }
+      }
       res.send(JSON.stringify(dataToSend));
     });
   } else {
@@ -144,28 +145,28 @@ app.post("/forum", async (req, res) => {
   console.log(searchBy + " " + keyWord);
   // const posts = await Post.find({}).sort("-updatedAt");
   if (searchBy == "title") {
-    const posts = await Post.find({ title: { $regex: keyWord } }).sort(
-      "-updatedAt"
-    );
+    const posts = await Post.find({ title: { $regex: keyWord } })
+      .populate("account")
+      .sort("-updatedAt");
     res.json({
       posts: posts,
     });
   } else if (searchBy == "author") {
-    const posts = await Post.find({ author: { $regex: keyWord } }).sort(
-      "-updatedAt"
-    );
+    const posts = await Post.find({ author: { $regex: keyWord } })
+      .populate("account")
+      .sort("-updatedAt");
     res.json({
       posts: posts,
     });
   } else if (searchBy == "content") {
-    const posts = await Post.find({ content: { $regex: keyWord } }).sort(
-      "-updatedAt"
-    );
+    const posts = await Post.find({ content: { $regex: keyWord } })
+      .populate("account")
+      .sort("-updatedAt");
     res.json({
       posts: posts,
     });
   } else {
-    const posts = await Post.find().sort("-updatedAt");
+    const posts = await Post.find().populate("account").sort("-updatedAt");
     res.json({
       posts: posts,
     });
@@ -182,16 +183,44 @@ app.post("/post-public", async (req, res) => {
     let textContent = req.body.content;
     console.log(textContent);
 
-    // we need to get the current user first through the request body
-    const post = new Post({
-      account: req.session.user._id,
-      title: req.body.fname,
-      content: req.body.content.trim(),
-    });
-    const savedPost = await post.save();
+    try {
+      const post = new Post({
+        account: req.session.user._id,
+        title: req.body.fname,
+        content: req.body.content.trim(),
+      });
+      await post.save();
+    } catch (err) {
+      console.log("could not save to database ", err);
+    }
     // here save the post to the database
+    res.send("TEXTRECEIVED1");
   }
-  res.send("TEXTRECEIVED1");
+});
+
+app.get("/replies", async (req, res) => {
+  const replies = await Reply.find({ post: req.query.postId })
+    .populate("account")
+    .sort("-createdAt");
+  res.send(replies);
+});
+
+app.post("/reply", async (req, res) => {
+  if (req.body.content !== "") {
+    let replyContent = req.body.content;
+    console.log(replyContent);
+    try {
+      const reply = new Reply({
+        account: req.session.user._id,
+        post: req.body.post,
+        content: req.body.content.trim(),
+      });
+      await reply.save();
+    } catch (err) {
+      console.log("could not save to database ", err);
+    }
+    res.send("Received reply!");
+  }
 });
 // end of forum
 
@@ -292,12 +321,12 @@ app.get("/userCenter", async (req, res) => {
     try {
       const user = await Account.findOne({ _id });
       if (user) {
-        const reports = await Report.find({ account: _id });
+        const reports = await Report.find({ account: _id }).sort("-createdAt");
         console.log(reports);
         res.render("userCenter", {
           name: user.name,
           email: user.email,
-          xArray: reports,
+          reports: reports,
         });
       }
     } catch (error) {
@@ -306,6 +335,12 @@ app.get("/userCenter", async (req, res) => {
   } else {
     res.redirect("/login");
   }
+});
+
+app.get("/session", (req, res) => {
+  if (req.session.user) {
+    res.send("yes");
+  } else res.send("no");
 });
 
 app.listen(appPort, () => {
