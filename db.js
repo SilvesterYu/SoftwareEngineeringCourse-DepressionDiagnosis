@@ -17,8 +17,6 @@ const AccountSchema = new mongoose.Schema(
       default: "user",
       enum: ["user", "admin"],
     },
-    reports: [{ type: mongoose.Schema.Types.ObjectId, ref: "Report" }],
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
   },
   { timestamps: true }
 );
@@ -43,7 +41,6 @@ const PostSchema = new mongoose.Schema(
       default: "regular",
       enum: ["regular", "announcement"],
     },
-    replies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Reply" }],
   },
   { timestamps: true }
 );
@@ -52,9 +49,9 @@ const ReplySchema = new mongoose.Schema(
   {
     account: { type: mongoose.Schema.Types.ObjectId, ref: "Account" },
     post: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
-    content: { type: String, required: true },
+    content: { type: String },
   },
-  { timstamps: true }
+  { timestamps: true }
 );
 
 AccountSchema.plugin(mongooseSlugPlugin, { tmpl: "<%=name%>" });
