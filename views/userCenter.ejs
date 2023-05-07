@@ -42,14 +42,18 @@
         </div>
       </div>
     </div>
-    <script>
-      var xArray = [
-        "2023-03-04 10:23:00",
-        "2023-04-12 22:19:00",
-        "2023-05-01 15:18:00",
-        "2023-05-07 16:10:00",
-      ];
-      var yArray = [30, 60, 50, 50];
+
+    <script type="text/javascript">
+      // this line is not a bug
+      var reports = <%- JSON.stringify(reports) %>;
+
+      var xArray = [];
+      var yArray = [];
+
+      for (const report of reports) {
+        xArray.push(report['createdAt']);
+        yArray.push(report['score']);
+      }
 
       // Define Data
       var data = [
@@ -64,10 +68,15 @@
       var layout = {
         yaxis: { range: [0, 100], title: "Depression Score" },
         title: "Depression Score Log",
+        font: { family: 'Papyrus' },
+        autosize: true,
       };
 
+
+      var config = {responsive: true}
+
       // Display using Plotly
-      Plotly.newPlot("myPlot", data, layout);
+      Plotly.newPlot("myPlot", data, layout, config);
     </script>
   </body>
 </html>
