@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const app = express();
-const appPort = process.env.PORT || 3001;
+const appPort = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const db = require("./db.js");
 const session = require("express-session");
@@ -105,13 +105,12 @@ app.post("/diagnosis", async (req, res) => {
     // spawn new child process to call the python script
     // !! IMPORTANT !! To run Python script with arguments
     // refer to https://stackoverflow.com/questions/62450826/run-python-script-from-node-js-child-process-with-named-arguments
-    const python = spawn("python", ["script1.py"]);
+    const python = spawn("python", ["getScore.py"]);
     // collect data from script
     python.stdout.on("data", function (data) {
       console.log("Pipe data from python script ...");
-      dataToSend = data.toString();
+      dataToSend = data.toString().trim();
     });
-    dataToSend = Math.floor(Math.random() * (80 - 20 + 1) + 20);
     if (req.session.user) {
       // save to database
       try {
