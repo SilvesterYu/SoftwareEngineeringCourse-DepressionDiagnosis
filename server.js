@@ -339,8 +339,8 @@ app.get("/userCenter", async (req, res) => {
 
 app.get("/session", (req, res) => {
   if (req.session.user) {
-    res.send("yes");
-  } else res.send("no");
+    res.send(req.session.user.name);
+  } else res.send(null);
 });
 
 app.listen(appPort, () => {

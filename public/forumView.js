@@ -46,7 +46,7 @@ function displayPosts(posts) {
         url: "/session",
       })
       .done(function (resp) {
-        if (resp == "no") replyButton.disabled = true;
+        if (resp == null) replyButton.disabled = true;
       });
   });
 }
@@ -159,8 +159,29 @@ function getPosts(searchType, event) {
   searchMessage.classList.add("hide");
 }
 
+function showUserCenter() {
+  jQuery
+    .ajax({
+      method: "GET",
+      url: "/session",
+    })
+    .done(function (resp) {
+      if (!resp) return;
+      const usercenter = document.getElementById("usercenter");
+      usercenter.style.visibility = "visible";
+    });
+}
+
 window.onload = getPosts.bind(this, "none");
 titleSearch.onclick = getPosts.bind(this, "title");
 authorSearch.onclick = getPosts.bind(this, "author");
 contentSearch.onclick = getPosts.bind(this, "content");
 resetSearch.onclick = getPosts.bind(this, "none");
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    showUserCenter();
+  },
+  false
+);

@@ -196,4 +196,25 @@ function clearScreen() {
   diagnosisScore.classList.add("hide");
 }
 
+function showUserCenter() {
+  jQuery
+    .ajax({
+      method: "GET",
+      url: "/session",
+    })
+    .done(function (resp) {
+      if (!resp) return;
+      const usercenter = document.getElementById("usercenter");
+      usercenter.style.visibility = "visible";
+    });
+}
+
 diagnosisButton.onclick = getDiagnosis;
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    showUserCenter();
+  },
+  false
+);
