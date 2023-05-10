@@ -16,6 +16,8 @@ function writeSessionUserName(id) {
         newSpan.id = "nickname";
         const usercenter = document.getElementById("usercenter");
         usercenter.style.visibility = "visible";
+        const logoutButton = document.getElementById("logoutButton");
+        logoutButton.style.visibility = "visible";
       }
     });
 }

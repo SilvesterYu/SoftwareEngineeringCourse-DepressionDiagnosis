@@ -53,11 +53,19 @@ app.use((req, res, next) => {
 });
 
 app.get("/index", function (req, res) {
-  if (!req.session.user) res.sendFile(__dirname + "/public/index.html");
-  else {
-    var name = encodeURIComponent(req.session.user.name);
-    res.redirect("/index.html?user=" + name);
-  }
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/client", function (req, res) {
+  res.sendFile(__dirname + "/public/client.html");
+});
+
+app.get("/education", function (req, res) {
+  res.sendFile(__dirname + "/public/education.html");
+});
+
+app.get("/forum-view", function (req, res) {
+  res.sendFile(__dirname + "/public/forumView.html");
 });
 
 app.get("/forum", function (req, res) {
@@ -315,7 +323,17 @@ app.post("/login", (req, res) => {
   auth.login(req.body.email, req.body.password, error, success);
 });
 
-app.get("/userCenter", async (req, res) => {
+app.post("/logout", (req, res) => {
+  auth.endAuthenticatedSession(req, (err) => {
+    if (err) {
+      res.json({ message: "error ending auth sess: " + err });
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
+app.get("/user-center", async (req, res) => {
   const { _id } = req.session;
   if (_id) {
     try {

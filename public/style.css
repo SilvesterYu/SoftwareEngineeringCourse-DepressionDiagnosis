@@ -272,6 +272,28 @@ h3 {
   background-color: lightyellow;
 }
 
+#logoutSection {
+  text-align: center;
+  padding-top: 50px;
+}
+
+#logoutButton {
+  background-color: burlywood;
+  font-family: "Papyrus";
+  font-size: 15;
+  color: rgb(61, 34, 3);
+  padding: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #333;
+  border-width: 3px;
+  cursor: pointer;
+}
+
+#logoutButton:hover {
+  background-color: lightyellow;
+}
+
 #nickname {
   background-color: burlywood;
   font-family: "Papyrus";
