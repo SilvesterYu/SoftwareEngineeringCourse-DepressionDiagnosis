@@ -14,11 +14,14 @@ function displayPosts(posts) {
     author.className = "forumViewAuthor";
     body.className = "forumViewBody";
     title.innerHTML = post.title;
+    datetimePost = new Date(post.createdAt);
     author.innerHTML =
       "Posted by: " +
       post.account.name +
       " on " +
-      post.createdAt.substring(0, post.createdAt.indexOf("T"));
+      datetimePost.toISOString().split("T")[0] +
+      " " +
+      datetimePost.toLocaleTimeString();
     body.innerHTML = post.content;
     title.appendChild(author);
     author.appendChild(body);
@@ -55,7 +58,16 @@ async function displayReplies(replySection, postId) {
         for (const reply of replies) {
           let replyPost = document.createElement("div");
           let replyContent = document.createElement("div");
-          replyContent.innerHTML = reply.account.name + ": " + reply.content;
+          const datetimeReply = new Date(reply.createdAt);
+
+          replyContent.innerHTML =
+            datetimeReply.toISOString().split("T")[0] +
+            " " +
+            datetimeReply.toLocaleTimeString() +
+            " " +
+            reply.account.name +
+            ": " +
+            reply.content;
           replyContent.style.fontSize = "15px";
           replyContent.style.textAlign = "left";
 
