@@ -5,6 +5,14 @@ var contentSearch = document.querySelector("#contentSearch");
 var searchMessage = document.querySelector("#searchMessage");
 var resetSearch = document.querySelector("#resetSearch");
 
+/**
+ * The function displays posts on a forum page, including the post title, author, content, and a reply
+ * button.
+ * @param posts - The parameter "posts" is an array of objects representing forum posts. Each object
+ * contains properties such as "title", "createdAt", "account", and "content". The function
+ * "displayPosts" takes this array as input and generates HTML elements to display each post on a web
+ * page.
+ */
 function displayPosts(posts) {
   posts.forEach((post) => {
     let title = document.createElement("div");
@@ -44,6 +52,14 @@ function displayPosts(posts) {
   });
 }
 
+/**
+ * This function retrieves and displays replies to a post using AJAX and dynamically created HTML
+ * elements.
+ * @param replySection - The HTML element where the replies will be displayed.
+ * @param postId - postId is a parameter that is passed to the function `displayReplies`. It is used as
+ * a query parameter in the AJAX request to retrieve replies for a specific post. The value of `postId`
+ * is used to filter the replies and only return the ones that are associated with the specified post.
+ */
 async function displayReplies(replySection, postId) {
   jQuery
     .ajax({
@@ -78,6 +94,16 @@ async function displayReplies(replySection, postId) {
     });
 }
 
+/**
+ * The function creates a reply input field and buttons for posting or canceling a reply to a post,
+ * after checking if the user is logged in.
+ * @param evt - The evt parameter is an event object that represents the event that triggered the
+ * function. It is used to access information about the event, such as the target element and any data
+ * associated with it.
+ * @param postId - The postId parameter is the unique identifier of the post to which the user is
+ * replying. It is used to associate the reply with the correct post when it is posted.
+ * @returns Nothing explicitly.
+ */
 function replyFunction(evt, postId) {
   const event = evt.currentTarget;
   jQuery
@@ -113,7 +139,14 @@ function replyFunction(evt, postId) {
       );
     });
 }
-
+/**
+ * The function sends a POST request to the "/reply" URL with the content and post ID data, and reloads
+ * the page upon completion.
+ * @param evt - The evt parameter is an event object that is passed to the function when it is called.
+ * @param postId - postId is a parameter that represents the ID of a post to which a reply is being
+ * made. It is used in the AJAX request to send the reply content and post ID to the server for
+ * processing.
+ */
 function postReply(evt, postId) {
   const myReply = document.getElementById("reply");
   const content = myReply.value;
@@ -132,6 +165,11 @@ function postReply(evt, postId) {
     });
 }
 
+/**
+ * The function cancels a reply and removes any child elements added to the parent element.
+ * @param evt - The `evt` parameter is an event object that represents the event that triggered the
+ * function. 
+ */
 function cancelReply(evt) {
   const parent = evt.currentTarget.parentNode;
   const replyButton = parent.querySelector(".replyButton");
@@ -141,6 +179,9 @@ function cancelReply(evt) {
   }
 }
 
+/**
+ * The function clears the screen by removing all elements with the class "forumViewTitle".
+ */
 function clearScreen() {
   const elements = document.getElementsByClassName("forumViewTitle");
   while (elements.length > 0) {
@@ -148,7 +189,12 @@ function clearScreen() {
   }
 }
 
-function getPosts(searchType, event) {
+/**
+ * The function retrieves posts from a forum based on a search type and keyword, and displays them on
+ * the screen.
+ * @param searchType - The type of search to be performed (e.g. search by title, author, date, etc.).
+ */
+function getPosts(searchType) {
   clearScreen();
   if (searchType == "none") {
     document.getElementById("mySearch").value = "";
@@ -175,6 +221,9 @@ function getPosts(searchType, event) {
   searchMessage.classList.add("hide");
 }
 
+/**
+ * This function is used to display the user center if user has an active session.
+ */
 function showUserCenter() {
   jQuery
     .ajax({

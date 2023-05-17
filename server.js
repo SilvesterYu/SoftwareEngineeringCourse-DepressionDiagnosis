@@ -18,6 +18,9 @@ const { spawn } = require("child_process");
 
 app.disable("x-powered-by");
 
+/**
+ * The following are middlewares.
+ */
 app.use(express.static("views"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -52,6 +55,9 @@ app.use((req, res, next) => {
   next();
 });
 
+/**
+ * The following are routes to render the html files
+ */
 app.get("/index", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
@@ -75,6 +81,9 @@ app.get("/forum", function (req, res) {
   }
 });
 
+/**
+ * The following are routes for depression diagnosis feature.
+ */
 // image upload
 app.post("/upload", (req, res) => {
   console.log("upload...");
@@ -146,6 +155,9 @@ app.post("/diagnosis", (req, res) => {
 });
 // end of image upload
 
+/**
+ * The following are routes for communication platform.
+ */
 // forum view
 app.post("/forum", async (req, res) => {
   let searchBy = req.body.searchBy;
@@ -232,6 +244,9 @@ app.post("/reply", async (req, res) => {
 });
 // end of forum
 
+/**
+ * The following are routes for login and register.
+ */
 app.get("/register", (req, res) => {
   res.render("register", { errMsg: {} });
 });
@@ -300,7 +315,6 @@ app.post("/login", (req, res) => {
     return;
   }
 
-  // setup callbacks for login success and error
   function success(user) {
     auth.startAuthenticatedSession(req, user, (err) => {
       if (err) {
@@ -333,6 +347,9 @@ app.post("/logout", (req, res) => {
   });
 });
 
+/**
+ * The following is the route for the user center.
+ */
 app.get("/user-center", async (req, res) => {
   const { _id } = req.session;
   if (_id) {
@@ -355,6 +372,9 @@ app.get("/user-center", async (req, res) => {
   }
 });
 
+/**
+ * The following is the route to check the current session user.
+ */
 app.get("/session", (req, res) => {
   if (req.session.user) {
     res.send(req.session.user.name);
