@@ -160,7 +160,7 @@ app.post("/forum", async (req, res) => {
       posts: posts,
     });
   } else if (searchBy == "author") {
-    const posts = await Post.find({ author: { $regex: keyWord } })
+    const posts = await Post.find({ name: { $regex: keyWord } })
       .populate("account")
       .sort("-updatedAt");
     res.json({

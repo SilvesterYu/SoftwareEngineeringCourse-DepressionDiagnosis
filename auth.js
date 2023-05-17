@@ -42,7 +42,8 @@ const register = async (
           });
           try {
             const savedAccount = await account.save();
-            if (savedAccount) successCallback(savedAccount);
+            console.log(savedAccount)
+            successCallback(savedAccount);
           } catch (error) {
             errorCallback({ message: "DOCUMENT SAVE ERROR" });
           }
