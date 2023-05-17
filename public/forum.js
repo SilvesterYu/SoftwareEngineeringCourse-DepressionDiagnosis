@@ -3,6 +3,10 @@ var forumForm = document.querySelector("#forumForm");
 var publishbutton = document.querySelector("#publishbutton");
 var forumMessage = document.getElementById("forumMessage");
 
+/**
+ * The function publishes a post by sending the post content and title to a server using AJAX and
+ * displays a success message if the post is saved and published successfully.
+ */
 function publishPost() {
   var fName = document.getElementById("myTitle").value;
   var x = "\r\n" + document.getElementById("myPost").value;
@@ -26,6 +30,9 @@ function publishPost() {
     });
 }
 
+/**
+ * This function is used to display the user center if user has an active session.
+ */
 function showUserCenter() {
   jQuery
     .ajax({

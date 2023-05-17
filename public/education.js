@@ -1,3 +1,6 @@
+/**
+ * The function checks if a user is logged in and displays the user center if they are.
+ */
 function showUserCenter() {
   jQuery
     .ajax({

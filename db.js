@@ -4,7 +4,9 @@ const url = require("url");
 const mongoose = require("mongoose");
 const mongooseSlugPlugin = require("mongoose-slug-plugin");
 
-//const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+/**
+ * The following are schemas for MongoDB.
+ */
 
 const AccountSchema = new mongoose.Schema(
   {
@@ -74,7 +76,6 @@ if (process.env.NODE_ENV === "PRODUCTION") {
   dbconf = conf.dbconf;
 } else {
   // if we're not in PRODUCTION mode, then use
-  //dbconf = "mongodb://localhost:27017/depression-diagnosis-js";
   dbconf = "mongodb://127.0.0.1:27017/depression-diagnosis-js";
 }
 
