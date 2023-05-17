@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Image Upload</title>
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body class="container">
+  <body class="container">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.3.ui.min.js"></script> -->
 
-    <nav id="nav-bar-client">
-        <a href="./index.html" id="uploadBack">Back to Home</a>
-        <!-- <a href="./client.html">Client Image Upload</a> -->
-      </nav>
+    <div class="topnav">
+      <a href="/index" id="home">Home</a>
+      <a class="active" href="./client" id="imageUploadBar">Image Upload for Diagnosis</a>
+      <a href="./forum-view" id="forumbar">Discussion Forum</a>
+      <a href="./education" id="education">Education Section</a>
+      <div class="topnav-right" style="visibility: hidden">
+        <a id="usercenter" href="/user-center">User Center</a>
+      </div>
+    </div>
 
     <h1>Image Upload</h1>
 
+    <h5>
+      This calculation results in depression scores on a 100-point scale, where
+      0 is least depressed and 100 is severely depressed.
+    </h5>
+
     <form id="theImageForm">
-        <label for="theImageField" id="theImageContainer">
-            <input type="file" id="theImageField" accept="image/png, image/jpeg, image/jpg">
-            Click or <b>drag-and-drop</b> to upload...
-        </label>
-        <p id="errorMessage" class="hide"></p>
-        <p id="successMessage" class="hide"></p>
-        <p id="removalMessage" class="hide"></p>
-        <button id="uploadImageButton" class="imageButton" type="submit">Upload Image</button>
-        <a href="" id="clearImage">Remove Image</a>
-        <button id="diagnosisButton" class="imageButton" type="submit">Submit for dignosis</button>
-        <p id="diagnosisMessage" class="hide"></p>
-        <p id="diagnosisScore" class="hide"></p>
+      <label for="theImageField" id="theImageContainer">
+        <input
+          type="file"
+          id="theImageField"
+          accept="image/png, image/jpeg, image/jpg"
+        />
+        Click or <b>drag-and-drop</b> to upload...
+      </label>
+      <p id="errorMessage" class="hide"></p>
+      <p id="successMessage" class="hide"></p>
+      <p id="removalMessage" class="hide"></p>
+      <button id="uploadImageButton" class="imageButton" type="submit">
+        Upload Image
+      </button>
+      <a href="" id="clearImage">Remove Image</a>
+      <button id="diagnosisButton" class="imageButton" type="submit">
+        Submit for Diagnosis
+      </button>
+      <p id="diagnosisMessage" class="hide"></p>
+      <p id="diagnosisScore" class="hide"></p>
     </form>
     <!-- <script src="/libs/jquery/dist/jquery.min.js"></script> -->
     <!-- other versions https://stackoverflow.com/questions/8886614/uncaught-referenceerror-jquery-is-not-defined -->
-    
-    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="client.js"></script>
-</body>
+  </body>
 </html>

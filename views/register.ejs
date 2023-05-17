@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      .err {
+        color: red;
+      }
+    </style>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="./index.html" id="home">Home</a>
+      <a href="./client.html" id="imageUploadBar">Image Upload for Diagnosis</a>
+      <a href="./forumView.html" id="forumbar">Discussion Forum</a>
+      <a href="./education.html" id="education">Education Section</a>
+    </div>
+    <h1>Register</h1>
+    <span class="err"><%=errMsg.networkErr%></span>
+
+    <div class="register">
+      <span class="registerInput">
+        <form action="/register" method="post">
+          Email：<input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+          /><span class="err"><%=errMsg.emailErr%></span><br /><br />
+          Nickname:
+          <input type="text" class="form-control" name="name" /><span
+            class="err"
+            ><%=errMsg.nickErr%></span
+          ><br /><br />
+          Password：<input
+            type="password"
+            class="form-control"
+            name="password"
+          /><span class="err"><%=errMsg.passwordErr%></span><br /><br />
+          Repeat your password：<input
+            type="password"
+            class="form-control"
+            name="re_password"
+          /><span class="err"><%=errMsg.rePasswordErr%></span><br /><br />
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+      </span>
+    </div>
+  </body>
+</html>

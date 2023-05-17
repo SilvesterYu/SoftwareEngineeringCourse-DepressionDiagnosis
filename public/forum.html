@@ -9,27 +9,23 @@
     <!-- end: for text input -->
 
     <title>Depression Diagnosis Forum</title>
-    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body style="text-align: center">
-    <ul class="nav flex-column" id="nav-bar-forum">
-      <li class="nav-item">
-        <a class="nav-link active" href="./index.html" id="forumBack"
-          >Back to Home</a
-        >
-        <a class="nav-link active" href="./forumView.html" id="forumBack2View"
-          >Back to Forum Posts</a
-        >
-      </li>
-    </ul>
+    <div class="topnav">
+      <a href="/index" id="home">Home</a>
+      <a href="./client" id="imageUploadBar">Image Upload for Diagnosis</a>
+      <a href="./forum-view" id="forumbar">Discussion Forum</a>
+      <a href="./education" id="education">Education Section</a>
+      <div class="topnav-right" style="visibility: hidden">
+        <a id="usercenter" href="/user-center">User Center</a>
+      </div>
+    </div>
 
     <h4>Post on Forum</h4>
+
     <h5>Post and discuss your thoughts here.</h5>
-    <button id="myPostButton" class="btn btn-lg btn-primary" type="button">
-      View my posts
-    </button>
 
     <form id="forumForm">
       <label for="myTitle" id="titleContainer">
@@ -57,8 +53,6 @@
           Publish Post
         </button>
       </label>
-
-      
     </form>
 
     <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
