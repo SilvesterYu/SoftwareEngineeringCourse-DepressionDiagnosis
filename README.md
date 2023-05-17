@@ -26,6 +26,15 @@ Follow [This](https://mongoosejs.com/docs/connections.html) if Nodejs fails to l
 npm install python-shell
 ```
 
+## Install Python libraries
+```
+pip install tensorflow
+```
+
+## Change absolute path in GetScore.py
+```
+base_path = "your/own/absolute/path/to/this/project"
+```
 
 ## Start the server
 ```
